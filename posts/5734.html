@@ -1,15 +1,16 @@
-<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>GAMES202个人笔记（2）-实时阴影 | Yui Lu</title><meta name="author" content="Yui Lu"><meta name="copyright" content="Yui Lu"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="图片与文字施工中~">
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>GAMES202个人笔记（2）-实时阴影 | Yui Lu</title><meta name="author" content="Yui Lu"><meta name="copyright" content="Yui Lu"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="图片与公式施工中~可先行前往知乎阅读">
 <meta property="og:type" content="article">
 <meta property="og:title" content="GAMES202个人笔记（2）-实时阴影">
 <meta property="og:url" content="https://yuilu.github.io/posts/5734.html">
 <meta property="og:site_name" content="Yui Lu">
-<meta property="og:description" content="图片与文字施工中~">
+<meta property="og:description" content="图片与公式施工中~可先行前往知乎阅读">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/YuiLu/Image_host@main/GAMES202/1.png">
 <meta property="article:published_time" content="2024-01-15T10:00:00.000Z">
-<meta property="article:modified_time" content="2024-01-17T11:13:14.726Z">
+<meta property="article:modified_time" content="2024-01-17T15:34:12.004Z">
 <meta property="article:author" content="Yui Lu">
-<meta property="article:tag" content="GAMES202, Notes">
+<meta property="article:tag" content="Notes">
+<meta property="article:tag" content="GAMES202">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/YuiLu/Image_host@main/GAMES202/1.png"><link rel="shortcut icon" href="/img/favicon-32x32-Arlecchino.png"><link rel="canonical" href="https://yuilu.github.io/posts/5734.html"><link rel="preconnect" href="//cdnjs.cloudflare.com"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><meta/><link rel="stylesheet" href="/css/index.css?v=4.12.0"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancyapps-ui/5.0.32/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
   root: '/',
@@ -56,7 +57,7 @@
   isHome: false,
   isHighlightShrink: false,
   isToc: true,
-  postUpdate: '2024-01-17 19:13:14'
+  postUpdate: '2024-01-17 23:34:12'
 }</script><script>(win=>{
       win.saveToLocal = {
         set: (key, value, ttl) => {
@@ -153,69 +154,46 @@
         }
       }
       detectApple()
-    })(window)</script><meta name="generator" content="Hexo 7.0.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/bocchi.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">15</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">2</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">0</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Timeline</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page group hide" href="javascript:void(0);"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/notes/"><i class="fa-fw fas fa-edit"></i><span> Note</span></a></li><li><a class="site-page child" href="/blogs/"><i class="fa-fw fas fa-file-alt"></i><span> Blog</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fa fa-heartbeat"></i><span> Life</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/travel/"><i class="fa-fw fas fa-plane-departure"></i><span> Travel</span></a></li><li><a class="site-page child" href="/animes/"><i class="fa-fw fas fa-mug-hot"></i><span> ACGN</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-user"></i><span> About</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/about_cn/"><span> 简体中文</span></a></li><li><a class="site-page child" href="/about_en/"><span> English</span></a></li></ul></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('/images/GAMES202_topimg/2.png')"><nav id="nav"><span id="blog-info"><a href="/" title="Yui Lu"><span class="site-name">Yui Lu</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Timeline</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page group hide" href="javascript:void(0);"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/notes/"><i class="fa-fw fas fa-edit"></i><span> Note</span></a></li><li><a class="site-page child" href="/blogs/"><i class="fa-fw fas fa-file-alt"></i><span> Blog</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fa fa-heartbeat"></i><span> Life</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/travel/"><i class="fa-fw fas fa-plane-departure"></i><span> Travel</span></a></li><li><a class="site-page child" href="/animes/"><i class="fa-fw fas fa-mug-hot"></i><span> ACGN</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-user"></i><span> About</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/about_cn/"><span> 简体中文</span></a></li><li><a class="site-page child" href="/about_en/"><span> English</span></a></li></ul></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">GAMES202个人笔记（2）-实时阴影<a class="post-edit-link" href="null_posts/GAMES202个人笔记（2）-实时阴影.md" title="编辑" target="_blank"><i class="fas fa-pencil-alt"></i></a></h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2024-01-15T10:00:00.000Z" title="发表于 2024-01-15 18:00:00">2024-01-15</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2024-01-17T11:13:14.726Z" title="更新于 2024-01-17 19:13:14">2024-01-17</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="GAMES202个人笔记（2）-实时阴影"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h3 id="Shadow-Mapping-阴影映射"><a href="#Shadow-Mapping-阴影映射" class="headerlink" title="Shadow Mapping 阴影映射"></a>Shadow Mapping 阴影映射</h3><p>提到阴影，就不得不从Shadow Mapping开始说起，它是最早被应用于离线渲染的硬阴影的手法，也是现在的一种家喻户晓的渲染技术</p>
+    })(window)</script><meta name="generator" content="Hexo 7.0.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/bocchi.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">19</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">6</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">0</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Timeline</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page group hide" href="javascript:void(0);"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/notes/"><i class="fa-fw fas fa-edit"></i><span> Note</span></a></li><li><a class="site-page child" href="/blogs/"><i class="fa-fw fas fa-file-alt"></i><span> Blog</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fa fa-heartbeat"></i><span> Life</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/travel/"><i class="fa-fw fas fa-plane-departure"></i><span> Travel</span></a></li><li><a class="site-page child" href="/animes/"><i class="fa-fw fas fa-mug-hot"></i><span> ACGN</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-user"></i><span> About</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/about_cn/"><span> 简体中文</span></a></li><li><a class="site-page child" href="/about_en/"><span> English</span></a></li></ul></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('/images/GAMES202_topimg/2.jpg')"><nav id="nav"><span id="blog-info"><a href="/" title="Yui Lu"><span class="site-name">Yui Lu</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Timeline</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page group hide" href="javascript:void(0);"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/notes/"><i class="fa-fw fas fa-edit"></i><span> Note</span></a></li><li><a class="site-page child" href="/blogs/"><i class="fa-fw fas fa-file-alt"></i><span> Blog</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fa fa-heartbeat"></i><span> Life</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/travel/"><i class="fa-fw fas fa-plane-departure"></i><span> Travel</span></a></li><li><a class="site-page child" href="/animes/"><i class="fa-fw fas fa-mug-hot"></i><span> ACGN</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-user"></i><span> About</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/about_cn/"><span> 简体中文</span></a></li><li><a class="site-page child" href="/about_en/"><span> English</span></a></li></ul></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">GAMES202个人笔记（2）-实时阴影<a class="post-edit-link" href="null_posts/GAMES202个人笔记（2）-实时阴影.md" title="编辑" target="_blank"><i class="fas fa-pencil-alt"></i></a></h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2024-01-15T10:00:00.000Z" title="发表于 2024-01-15 18:00:00">2024-01-15</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2024-01-17T15:34:12.004Z" title="更新于 2024-01-17 23:34:12">2024-01-17</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="GAMES202个人笔记（2）-实时阴影"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h3 id="Shadow-Mapping-阴影映射"><a href="#Shadow-Mapping-阴影映射" class="headerlink" title="Shadow Mapping 阴影映射"></a>Shadow Mapping 阴影映射</h3><p>提到阴影，就不得不从Shadow Mapping开始说起，它是最早被应用于离线渲染的硬阴影的手法，也是现在的一种家喻户晓的渲染技术</p>
 <h4 id="Recap"><a href="#Recap" class="headerlink" title="Recap"></a>Recap</h4><p>首先上图，先复习一下</p>
 <p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/posts/5734/-STUDY-/college/%E9%97%AB%E4%BB%A4%E7%90%AA_%E5%9B%BE%E5%BD%A2%E5%AD%A6%E5%85%A5%E9%97%A8/202/%E5%9B%BE%E7%89%87/p3/shadow%20map%20gif.gif" alt="shadow map gif"></p>
-<p>简单来说，它是一个2-pass算法，要用到两个pass（可以理解为渲染两遍），第一个pass先从光源出发，将==光源空间的深度值==写入阴影映射纹理（也就是所谓的shadow map），这张纹理表示场景哪里会被光源照亮；第二个pass从摄像机出发，将==屏幕空间的深度信息==写入z-buffer，再将当前像素的屏幕空间深度转换到光源空间中，并与shadow map上查询到的深度值相比较，若shadow map上的深度值小于屏幕空间的深度，就说明当前渲染位置产生了阴影（《入门精要》p197）</p>
+<p>简单来说，它是一个2-pass算法，要用到两个pass（可以理解为渲染两遍），第一个pass先从光源出发，将&#x3D;&#x3D;光源空间的深度值&#x3D;&#x3D;写入阴影映射纹理（也就是所谓的shadow map），这张纹理表示场景哪里会被光源照亮；第二个pass从摄像机出发，将&#x3D;&#x3D;屏幕空间的深度信息&#x3D;&#x3D;写入z-buffer，再将当前像素的屏幕空间深度转换到光源空间中，并与shadow map上查询到的深度值相比较，若shadow map上的深度值小于屏幕空间的深度，就说明当前渲染位置产生了阴影（《入门精要》p197）</p>
 <p>关于比较shadow map深度与屏幕空间的深度，有两种方法，一种是用深度缓存比较z分量，另一种是直接比较线性距离（光源坐标、相机坐标和图元坐标代入距离公式…），绝大多数情况下是用的第一种，也就是z分量比较（因为缓存速度快？）</p>
-<p>而至于shadow map产生的问题，主要分为两种，一种是==自遮挡==（shadow acne，阴影失真），另一种是==走样==</p>
+<p>而至于shadow map产生的问题，主要分为两种，一种是&#x3D;&#x3D;自遮挡&#x3D;&#x3D;（shadow acne，阴影失真），另一种是&#x3D;&#x3D;走样&#x3D;&#x3D;</p>
 <p>自遮挡现象产生的原因有二，其一是处理器的数值精度的限制，还有一个原因是因为shadow map本身保存的值是离散值，也就是说shadow map上每个采样点都代表着一块范围内图元的深度值，因此在第二个pass比较深度的时候，shadow map中的深度可能会略低于物体表面的深度，部分片元就会被误计算为阴影，导致自遮挡。该现象在光源与平面趋于平行时（掠射）尤为严重</p>
-<div class="table-container">
 <table>
 <thead>
 <tr>
-<th><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/posts/5734/-STUDY-/college/%E9%97%AB%E4%BB%A4%E7%90%AA_%E5%9B%BE%E5%BD%A2%E5%AD%A6%E5%85%A5%E9%97%A8/202/%E5%9B%BE%E7%89%87/p3/%E9%98%B4%E5%BD%B1%E5%A4%B1%E7%9C%9F%20(1" alt="阴影失真 (1)">.png)</th>
-<th><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/posts/5734/-STUDY-/college/%E9%97%AB%E4%BB%A4%E7%90%AA_%E5%9B%BE%E5%BD%A2%E5%AD%A6%E5%85%A5%E9%97%A8/202/%E5%9B%BE%E7%89%87/p3/%E9%98%B4%E5%BD%B1%E5%A4%B1%E7%9C%9F%20(2" alt="阴影失真 (2)">.png)</th>
+<th><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/posts/5734/-STUDY-/college/%E9%97%AB%E4%BB%A4%E7%90%AA_%E5%9B%BE%E5%BD%A2%E5%AD%A6%E5%85%A5%E9%97%A8/202/%E5%9B%BE%E7%89%87/p3/%E9%98%B4%E5%BD%B1%E5%A4%B1%E7%9C%9F%20(1).png" alt="阴影失真 (1)"></th>
+<th><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/posts/5734/-STUDY-/college/%E9%97%AB%E4%BB%A4%E7%90%AA_%E5%9B%BE%E5%BD%A2%E5%AD%A6%E5%85%A5%E9%97%A8/202/%E5%9B%BE%E7%89%87/p3/%E9%98%B4%E5%BD%B1%E5%A4%B1%E7%9C%9F%20(2).png" alt="阴影失真 (2)"></th>
 </tr>
 </thead>
-<tbody>
-<tr>
-<td></td>
-</tr>
-</tbody>
 </table>
-</div>
 <p>为了解决这个问题，我们可以在shadow map中引入一个偏移值（bias），使得每次在比较深度大小的时候，都将一定区间内的shadow map深度认作与屏幕空间深度相等，强行减弱阴影判定。但这样做又会引入一个新的问题——detached shadow，或者说，peter panning（阴影悬浮）——即丢失部分原本可能发生遮挡的阴影</p>
-<div class="table-container">
 <table>
 <thead>
 <tr>
-<th><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/posts/5734/-STUDY-/college/%E9%97%AB%E4%BB%A4%E7%90%AA_%E5%9B%BE%E5%BD%A2%E5%AD%A6%E5%85%A5%E9%97%A8/202/%E5%9B%BE%E7%89%87/p3/%E9%98%B4%E5%BD%B1%E6%82%AC%E6%B5%AE%20(1" alt="阴影悬浮 (1)">.png)</th>
-<th><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/posts/5734/-STUDY-/college/%E9%97%AB%E4%BB%A4%E7%90%AA_%E5%9B%BE%E5%BD%A2%E5%AD%A6%E5%85%A5%E9%97%A8/202/%E5%9B%BE%E7%89%87/p3/%E9%98%B4%E5%BD%B1%E6%82%AC%E6%B5%AE%20(2" alt="阴影悬浮 (2)">.png)</th>
+<th><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/posts/5734/-STUDY-/college/%E9%97%AB%E4%BB%A4%E7%90%AA_%E5%9B%BE%E5%BD%A2%E5%AD%A6%E5%85%A5%E9%97%A8/202/%E5%9B%BE%E7%89%87/p3/%E9%98%B4%E5%BD%B1%E6%82%AC%E6%B5%AE%20(1).png" alt="阴影悬浮 (1)"></th>
+<th><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/posts/5734/-STUDY-/college/%E9%97%AB%E4%BB%A4%E7%90%AA_%E5%9B%BE%E5%BD%A2%E5%AD%A6%E5%85%A5%E9%97%A8/202/%E5%9B%BE%E7%89%87/p3/%E9%98%B4%E5%BD%B1%E6%82%AC%E6%B5%AE%20(2).png" alt="阴影悬浮 (2)"></th>
 </tr>
 </thead>
-<tbody>
-<tr>
-<td></td>
-</tr>
-</tbody>
 </table>
-</div>
 <p>解决阴影悬浮有两种方法，一种是将偏移值与入射角相关联，可以在OpenGL中通过glPolygonOffset来设置，入射角越大，偏移量越大，还有一种是second-depth shadow mapping，即在生成shadow map时使用最小深度和次小深度（正面剔除）的中间值，但使用这种方法也就意味着计算阴影的时间会随之翻倍，并且它还存在着封闭物体的局限性（只适用于盒体，球体这类非面片物体），因此在工业界这种方法并没有得到大范围的使用</p>
 <p>另外有一点值得强调的是，不要小看翻倍的代价，在实时渲染中，开发者通常只会关注算法的绝对速度（以ms计），而不会去关注算法的时间复杂度，正所谓RTR does not believe in COMPLEXITY，就是这个道理</p>
 <p>除了自遮挡，剩下还有一个问题就是走样。产生走样的原因是由于shadow map纹理的分辨率不足导致的，在对shadow map采样时，多个不同的顶点都采样到同一个纹素，从而产生锯齿。这个问题的解决方法与101中的MipMap类似，采用级联阴影（CSM），通过牺牲一些显存来对阴影进行分级，从而提高阴影质量，具体就不再赘述了</p>
 <p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/posts/5734/-STUDY-/college/%E9%97%AB%E4%BB%A4%E7%90%AA_%E5%9B%BE%E5%BD%A2%E5%AD%A6%E5%85%A5%E9%97%A8/202/%E5%9B%BE%E7%89%87/p3/shadow%20map%E8%B5%B0%E6%A0%B7.png" alt="shadow map走样"></p>
 <h4 id="阴影映射背后的数学原理"><a href="#阴影映射背后的数学原理" class="headerlink" title="阴影映射背后的数学原理"></a>阴影映射背后的数学原理</h4><p>之前提到过，实时渲染是在保证实时的情况下让结果尽可能的<strong>近似</strong>正确，而不苛求结果的绝对正确，因此在这个领域通常会把一些不等式直接当做约等式来用，比如微积分中的施瓦茨不等式和闵可夫斯基不等式….</p>
-<p>接下来介绍一个实时渲染中非常重要的约等式</p>
-<script type="math/tex; mode=display">
-\int_\Omega f(x)g(x)dx\approx\frac{\int_\Omega f(x)dx}{\int_\Omega dx}·\int_\Omega g(x)dx</script><p>这个式子的分式部分是一个归一化操作，其实也就是求了一下积分域内$f(x)$的均值</p>
+<p>接下来介绍一个实时渲染中非常重要的约等式<br>$$<br>\int_\Omega f(x)g(x)dx\approx\frac{\int_\Omega f(x)dx}{\int_\Omega dx}·\int_\Omega g(x)dx<br>$$<br>这个式子的分式部分是一个归一化操作，其实也就是求了一下积分域内$f(x)$的均值</p>
 <p>它提供了一种很好的方法，使得能够将乘积的积分拆为两个积分的乘积，并且当$g(x)$的积分域很小时，或当$g(x)$在其积分域内足够光滑（低频）的时候，这个约等式的结果是（更加）准确的</p>
-<p>将这个约等式应用于渲染方程</p>
-<script type="math/tex; mode=display">
-L_o(p,\omega_o)=\int_{\Omega+}L_i(p,\omega_i)·
-f_r(p,\omega_i,\omega_o)·cos\theta_i·V(p,\omega_i)\ d\omega_i\\
-\approx\frac{\int_{\Omega+}V(p,\omega_i)d\omega_i}{\int_{\Omega+}d\omega_i}\int_{\Omega+}L_i(p,\omega_i)·
-f_r(p,\omega_i,\omega_o)·cos\theta_i\ d\omega_i</script><p>立刻就可以发现，它将原来的渲染方程变为了Visibility项和Shading项相乘的结果，也就是在说，一边判断可见与否一边算着色结果，和先算着色结果再乘以shadow map的结果是近似相等的，这也就是shadow mapping做硬阴影的背后的理论基础</p>
+<p>将这个约等式应用于渲染方程<br>$$<br>L_o(p,\omega_o)&#x3D;\int_{\Omega+}L_i(p,\omega_i)·<br>f_r(p,\omega_i,\omega_o)·cos\theta_i·V(p,\omega_i)\ d\omega_i\<br>\approx\frac{\int_{\Omega+}V(p,\omega_i)d\omega_i}{\int_{\Omega+}d\omega_i}\int_{\Omega+}L_i(p,\omega_i)·<br>f_r(p,\omega_i,\omega_o)·cos\theta_i\ d\omega_i<br>$$<br>立刻就可以发现，它将原来的渲染方程变为了Visibility项和Shading项相乘的结果，也就是在说，一边判断可见与否一边算着色结果，和先算着色结果再乘以shadow map的结果是近似相等的，这也就是shadow mapping做硬阴影的背后的理论基础</p>
 <p>再考虑这个式子的准确性，积分限足够小对应光源类型为点光源或方向光源，$g(x)$足够低频对应brdf趋近diffuse（光滑材质），当满足这两个条件，这个约等式的准确性是非常高的（注意这里只考虑直接光照，不考虑间接光，当然间接光也可以强行使用，就是没这么准确罢了…）</p>
-<div class="table-container">
 <table>
 <thead>
 <tr>
 <th>Q：离线渲染有这种近似吗？</th>
 </tr>
 </thead>
-<tbody>
-<tr>
+<tbody><tr>
 <td><strong>A：没见过</strong></td>
 </tr>
 <tr>
@@ -224,69 +202,55 @@ f_r(p,\omega_i,\omega_o)·cos\theta_i\ d\omega_i</script><p>立刻就可以发�
 <tr>
 <td><strong>A：很少，且没有必要从理论上分析这类近似的误差上下界</strong></td>
 </tr>
-</tbody>
-</table>
-</div>
+</tbody></table>
 <h3 id="渐进百分比滤波（PCF）"><a href="#渐进百分比滤波（PCF）" class="headerlink" title="渐进百分比滤波（PCF）"></a>渐进百分比滤波（PCF）</h3><p>一般的Shadow Map只能实现硬阴影，想要实现更加自然的软阴影，需要其他的方法</p>
 <p>在介绍PCSS之前，需要先介绍一下PCF（Percentage Closer Filtering）</p>
 <p>PCF原本是一种抗锯齿方法，是在Shadow Map采样过程中，一次性取多个光源空间深度（shadow map纹素）与shading point的屏幕空间深度值进行比较，得到二值化数据，再对二值化数据（加权）平均得到非二值数据，从而达到软化阴影锯齿的目的</p>
 <p>请注意，这个过程发生在采样过程中，滤波对象既<strong>不是</strong>Shadow Map所使用的深度图（1. 对深度图滤波，没有任何实际意义；2. 对深度图滤完波再做深度上的比较，结果仍是二值化数据，相当于什么都没做），也<strong>不是</strong>光源空间最后得到的阴影结果（非但不会消除锯齿，还会让阴影变糊，在101中有提到过，如下图所示），<strong>而是</strong>比较的光源空间和屏幕空间的深度所得到的二值图，对二值图做 filter（平均or加权）得到visibility，充当阴影软硬的依据</p>
-<div class="table-container">
 <table>
 <thead>
 <tr>
-<th style="text-align:center">先（采样）渲染再滤波（×）</th>
-<th style="text-align:center">先滤波再（采样）渲染（√）</th>
+<th align="center">先（采样）渲染再滤波（×）</th>
+<th align="center">先滤波再（采样）渲染（√）</th>
 </tr>
 </thead>
-<tbody>
-<tr>
-<td style="text-align:center"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/posts/5734/-STUDY-/college/%E9%97%AB%E4%BB%A4%E7%90%AA_%E5%9B%BE%E5%BD%A2%E5%AD%A6%E5%85%A5%E9%97%A8/202/%E5%9B%BE%E7%89%87/p3/%E6%BB%A4%E6%B3%A2%E6%AC%A1%E5%BA%8F%20(2" alt="滤波次序 (2)">.png)</td>
-<td style="text-align:center"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/posts/5734/-STUDY-/college/%E9%97%AB%E4%BB%A4%E7%90%AA_%E5%9B%BE%E5%BD%A2%E5%AD%A6%E5%85%A5%E9%97%A8/202/%E5%9B%BE%E7%89%87/p3/%E6%BB%A4%E6%B3%A2%E6%AC%A1%E5%BA%8F%20(1" alt="滤波次序 (1)">.png)</td>
+<tbody><tr>
+<td align="center"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/posts/5734/-STUDY-/college/%E9%97%AB%E4%BB%A4%E7%90%AA_%E5%9B%BE%E5%BD%A2%E5%AD%A6%E5%85%A5%E9%97%A8/202/%E5%9B%BE%E7%89%87/p3/%E6%BB%A4%E6%B3%A2%E6%AC%A1%E5%BA%8F%20(2).png" alt="滤波次序 (2)"></td>
+<td align="center"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/posts/5734/-STUDY-/college/%E9%97%AB%E4%BB%A4%E7%90%AA_%E5%9B%BE%E5%BD%A2%E5%AD%A6%E5%85%A5%E9%97%A8/202/%E5%9B%BE%E7%89%87/p3/%E6%BB%A4%E6%B3%A2%E6%AC%A1%E5%BA%8F%20(1).png" alt="滤波次序 (1)"></td>
 </tr>
-</tbody>
-</table>
-</div>
+</tbody></table>
 <p>由下图可以看到，PCF的结果还算不错，很好的消除了锯齿，但首先开销的成倍增加是其中一个问题，其次，这种方法也不能很好的表现现实中投影前实后虚的效果（虽然下右图有景深的因素，但这不影响观察阴影）</p>
-<div class="table-container">
 <table>
 <thead>
 <tr>
-<th style="text-align:center">PCF结果</th>
-<th style="text-align:center">真实情况</th>
+<th align="center">PCF结果</th>
+<th align="center">真实情况</th>
 </tr>
 </thead>
-<tbody>
-<tr>
-<td style="text-align:center"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/posts/5734/-STUDY-/college/%E9%97%AB%E4%BB%A4%E7%90%AA_%E5%9B%BE%E5%BD%A2%E5%AD%A6%E5%85%A5%E9%97%A8/202/%E5%9B%BE%E7%89%87/p3/PCF%E7%BB%93%E6%9E%9C.png" alt="PCF结果"></td>
-<td style="text-align:center"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/posts/5734/-STUDY-/college/%E9%97%AB%E4%BB%A4%E7%90%AA_%E5%9B%BE%E5%BD%A2%E5%AD%A6%E5%85%A5%E9%97%A8/202/%E5%9B%BE%E7%89%87/p3/%E5%89%8D%E5%AE%9E%E5%90%8E%E8%99%9A.png" alt="前实后虚"></td>
+<tbody><tr>
+<td align="center"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/posts/5734/-STUDY-/college/%E9%97%AB%E4%BB%A4%E7%90%AA_%E5%9B%BE%E5%BD%A2%E5%AD%A6%E5%85%A5%E9%97%A8/202/%E5%9B%BE%E7%89%87/p3/PCF%E7%BB%93%E6%9E%9C.png" alt="PCF结果"></td>
+<td align="center"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/posts/5734/-STUDY-/college/%E9%97%AB%E4%BB%A4%E7%90%AA_%E5%9B%BE%E5%BD%A2%E5%AD%A6%E5%85%A5%E9%97%A8/202/%E5%9B%BE%E7%89%87/p3/%E5%89%8D%E5%AE%9E%E5%90%8E%E8%99%9A.png" alt="前实后虚"></td>
 </tr>
-</tbody>
-</table>
-</div>
-<h3 id="渐进百分比软阴影（PCSS）"><a href="#渐进百分比软阴影（PCSS）" class="headerlink" title="渐进百分比软阴影（PCSS）"></a>渐进百分比软阴影（PCSS）</h3><p>为了达到前实后虚的软阴影效果，就可以采用PCSS（Percentage Closer Soft Shadow），通过计算投影平面与遮挡物之间的距离，来确定滤波范围的大小==（自适应的filter size）==</p>
+</tbody></table>
+<h3 id="渐进百分比软阴影（PCSS）"><a href="#渐进百分比软阴影（PCSS）" class="headerlink" title="渐进百分比软阴影（PCSS）"></a>渐进百分比软阴影（PCSS）</h3><p>为了达到前实后虚的软阴影效果，就可以采用PCSS（Percentage Closer Soft Shadow），通过计算投影平面与遮挡物之间的距离，来确定滤波范围的大小&#x3D;&#x3D;（自适应的filter size）&#x3D;&#x3D;</p>
 <p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/posts/5734/-STUDY-/college/%E9%97%AB%E4%BB%A4%E7%90%AA_%E5%9B%BE%E5%BD%A2%E5%AD%A6%E5%85%A5%E9%97%A8/202/%E5%9B%BE%E7%89%87/p3/PCSS.png" alt="PCSS"></p>
-<p>如上图所示，这个filter size由半影区大小决定，半影区的大小可以由下述公式得到（其实就是一个相似三角形的问题）：</p>
-<script type="math/tex; mode=display">
-w_{Penumbra}=w_{Light}·\frac{d_{receiver}-d_{blocker}}{d_{blocker}}</script><p><em>（软阴影产生的前提是光源本身具有一定面积，对于这种光源，产生Shadow Map的过程是取光源中间某一点，直接当做点光源来处理）</em></p>
+<p>如上图所示，这个filter size由半影区大小决定，半影区的大小可以由下述公式得到（其实就是一个相似三角形的问题）：<br>$$<br>w_{Penumbra}&#x3D;w_{Light}·\frac{d_{receiver}-d_{blocker}}{d_{blocker}}<br>$$<br><em>（软阴影产生的前提是光源本身具有一定面积，对于这种光源，产生Shadow Map的过程是取光源中间某一点，直接当做点光源来处理）</em></p>
 <p>PCSS的具体步骤如下：</p>
 <ul>
 <li>首先依据着色点选择一块范围，对Shadow Map做一次局部深度测试，找到范围内的blocker并计算其平均深度（计算平均深度的目的是减小遮挡物自身的几何影响，避免漏光）</li>
-<li>得到$d<em>{blocker}$后代入公式计算滤波范围，$d</em>{blocker}$越小，$d<em>{receiver}-d</em>{blocker}$越大，卷积核越大，得到的阴影就越软</li>
+<li>得到$d_{blocker}$后代入公式计算滤波范围，$d_{blocker}$越小，$d_{receiver}-d_{blocker}$越大，卷积核越大，得到的阴影就越软</li>
 <li>重新进行深度测试，继续完成PCF的过程</li>
 </ul>
 <p>这里有个问题，filter size可以按上述方法确定了，那么计算filter size时需要用到的$d_{blocker}$同样需要在一定范围内做平均，这个范围又怎么确定呢？我们可以人为规定一个固定的大小，如4*4，16*16等，但这么做绝对不是最优解，更好的方法是在光源处设置一个视锥，将shadow map置于近平面上，接着连接着色点和光源，以其在shadow map上所截得的范围作为样本，来计算平均深度</p>
 <p>这么做有一个非常大的好处，就是计算$d_{blocker}$也采用了自适应的方法，离光源越远，遮挡物越多，计算blocker所用的样本范围就越小；而离光源越近，遮挡物越少，计算blocker所用的样本空间就越大，非常合理</p>
 <p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/posts/5734/-STUDY-/college/%E9%97%AB%E4%BB%A4%E7%90%AA_%E5%9B%BE%E5%BD%A2%E5%AD%A6%E5%85%A5%E9%97%A8/202/%E5%9B%BE%E7%89%87/p3/blocker.png" alt="blocker"></p>
-<div class="table-container">
 <table>
 <thead>
 <tr>
 <th>Q：多光源怎么处理？</th>
 </tr>
 </thead>
-<tbody>
-<tr>
+<tbody><tr>
 <td><strong>A：如果是Shadow Mapping的话，只能一个个算</strong></td>
 </tr>
 <tr>
@@ -301,39 +265,28 @@ w_{Penumbra}=w_{Light}·\frac{d_{receiver}-d_{blocker}}{d_{blocker}}</script><p>
 <tr>
 <td><strong>A：这和运动物体没关系，因为每一帧的Shadow Map都会重新算</strong></td>
 </tr>
-</tbody>
-</table>
-</div>
+</tbody></table>
 <p>从数学公式上再深入理解一下，如图，设p为当前像素对应在shadow map上的采样点，q为p邻域上另一纹素</p>
 <p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/posts/5734/-STUDY-/college/%E9%97%AB%E4%BB%A4%E7%90%AA_%E5%9B%BE%E5%BD%A2%E5%AD%A6%E5%85%A5%E9%97%A8/202/%E5%9B%BE%E7%89%87/p4/Deeper.png" alt="Deeper"></p>
-<p>那么PCF计算阴影图的过程就可以表示为下述公式：</p>
-<script type="math/tex; mode=display">
-V(x)=\sum_{q\in N(p)}w(p,q)·\chi^+[D_{shadow\ map}(q)-D_{scene}(x)]</script><p>其中权重$w(p,q)$可以由p和q之间的距离来定义，而乘号后的符号函数 $\chi^+[D_{}(q)-D(x)]$ 就是深度测试的过程</p>
-<script type="math/tex; mode=display">
-V(x)\neq \chi^+\{[w*D_{shadow\ map}](q)-D_{scene}(x)\}\\
-V(x)\neq \sum_{y\in N(x)}w(x,y)·V(y)</script><p>通过这个公式我们也能更清楚的理解，为什么PCF的滤波对象不是shadow map和阴影图，而是一定filter size内的0-1样本了</p>
+<p>那么PCF计算阴影图的过程就可以表示为下述公式：<br>$$<br>V(x)&#x3D;\sum_{q\in N(p)}w(p,q)·\chi^+[D_{shadow\ map}(q)-D_{scene}(x)]<br>$$<br>其中权重$w(p,q)$可以由p和q之间的距离来定义，而乘号后的符号函数 $\chi^+[D_{}(q)-D(x)]$ 就是深度测试的过程<br>$$<br>V(x)\neq \chi^+{<a href="q">w*D_{shadow\ map}</a>-D_{scene}(x)}\<br>V(x)\neq \sum_{y\in N(x)}w(x,y)·V(y)<br>$$<br>通过这个公式我们也能更清楚的理解，为什么PCF的滤波对象不是shadow map和阴影图，而是一定filter size内的0-1样本了</p>
 <p>那么再看回PCSS的三个步骤，很容易发现在步骤一和步骤三中都存在着遍历采样shadow map进行深度比较的操作，这对实时渲染来说是非常慢的。当然了，我们可以选择不遍历，而是通过随机采样的方式得到一个近似的结果，但这样也就意味着会引入一些噪声</p>
 <p>工业界通常的处理方式就是这样，先对shadow map稀疏采样，再在图像空间内对含噪声结果进行一步降噪，就可以获得比较好的结果。至于怎么降噪，到之后的实时光线追踪部分再说</p>
 <p>除了这种稀疏采样的方法，VSSM提供了另外一套针对性的解决方案</p>
-<div class="table-container">
 <table>
 <thead>
 <tr>
 <th>Q：这样连续的稀疏采样会不会造成闪烁（flicker）？</th>
 </tr>
 </thead>
-<tbody>
-<tr>
+<tbody><tr>
 <td><strong>A：确实会，帧与帧之间随机采样相互独立，引入的噪声就不一样，连在一起就会flicker</strong></td>
 </tr>
-</tbody>
-</table>
-</div>
-<h3 id="方差阴影贴图（VSSM-VSM）"><a href="#方差阴影贴图（VSSM-VSM）" class="headerlink" title="方差阴影贴图（VSSM / VSM）"></a>方差阴影贴图（VSSM / VSM）</h3><p>类比一个场景，在某次考试后，你想知道自己在班中的排名百分比，如果说PCF的过程是在用你的分数与其余同学的分数一一比较，从而获取精确的排位，那么VSSM就更像是在基于历史经验，省去遍历比较的过程而直接估计出排位。为了实现这样的估计，VSSM提出了许多大胆的假设</p>
+</tbody></table>
+<h3 id="方差阴影贴图（VSSM-VSM）"><a href="#方差阴影贴图（VSSM-VSM）" class="headerlink" title="方差阴影贴图（VSSM &#x2F; VSM）"></a>方差阴影贴图（VSSM &#x2F; VSM）</h3><p>类比一个场景，在某次考试后，你想知道自己在班中的排名百分比，如果说PCF的过程是在用你的分数与其余同学的分数一一比较，从而获取精确的排位，那么VSSM就更像是在基于历史经验，省去遍历比较的过程而直接估计出排位。为了实现这样的估计，VSSM提出了许多大胆的假设</p>
 <p>首先是PCSS的第三步，也就是PCF操作，VSSM假设在这一步对shadow map采样时得到深度值样本大致服从正态分布（其实并不是这样，后面提到的切比雪夫近似根本不需要知道样本服不服从正态分布，这里的假设只是为了方便理解），想要定义出这样一个正态分布，就需要事先求得样本的均值和方差</p>
-<h4 id="均值-amp-方差"><a href="#均值-amp-方差" class="headerlink" title="均值&amp;方差"></a>均值&amp;方差</h4><p>对于快速求样本的均值，MipMap或许是一个不错的方法，在101中提到过，它是一个==快速的、近似的、正方形查询==方法，只不过在101中，这个算法是为了解决纹理过大的问题，回顾一下，那时候说如果一个屏幕像素对应多个纹理像素，为了避免失真，我们会预先通过双线性插值生成多级纹理，让纹素与像素大致对应，</p>
+<h4 id="均值-方差"><a href="#均值-方差" class="headerlink" title="均值&amp;方差"></a>均值&amp;方差</h4><p>对于快速求样本的均值，MipMap或许是一个不错的方法，在101中提到过，它是一个&#x3D;&#x3D;快速的、近似的、正方形查询&#x3D;&#x3D;方法，只不过在101中，这个算法是为了解决纹理过大的问题，回顾一下，那时候说如果一个屏幕像素对应多个纹理像素，为了避免失真，我们会预先通过双线性插值生成多级纹理，让纹素与像素大致对应，</p>
 <p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/posts/5734/-STUDY-/college/%E9%97%AB%E4%BB%A4%E7%90%AA_%E5%9B%BE%E5%BD%A2%E5%AD%A6%E5%85%A5%E9%97%A8/202/%E5%9B%BE%E7%89%87/p4/MipMap2.png" alt="MipMap2"></p>
-<p>然后在查询时依据查询范围确定层级序号（$D=log_2L$），在层与层之间再做一次插值作为结果写入像素</p>
+<p>然后在查询时依据查询范围确定层级序号（$D&#x3D;log_2L$），在层与层之间再做一次插值作为结果写入像素</p>
 <p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/posts/5734/-STUDY-/college/%E9%97%AB%E4%BB%A4%E7%90%AA_%E5%9B%BE%E5%BD%A2%E5%AD%A6%E5%85%A5%E9%97%A8/202/%E5%9B%BE%E7%89%87/p4/MipMap1.png" alt="MipMap1"></p>
 <p>这样一个标准的三线性插值，用在shadow map上也是一样的，先在gpu上双线性插值得到多级阴影贴图，依据filter size确定层级序号，随后三线性插值完成查询</p>
 <p>这个方法虽然简单，但一方面它要做三次插值，准确度不太高，另一方面，它只能做正方形查询，局限性太大（各向异性过滤可以解决），所以有人就提出了另一种方法——采用前缀和数组表（SAT）这一数据结构进行加速</p>
@@ -343,31 +296,17 @@ V(x)\neq \sum_{y\in N(x)}w(x,y)·V(y)</script><p>通过这个公式我们也能�
 <p>至于二维的查询就很简单了，想要获得任一矩形内元素的总和，只需要查4次表，用图中两个绿色矩形对应的SAT元素之和减去两个橙色矩形之和就行，这是最简单的容斥原理，也是leetcode 1314 matrix block sum这道经典算法题的基本思路</p>
 <p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/posts/5734/-STUDY-/college/%E9%97%AB%E4%BB%A4%E7%90%AA_%E5%9B%BE%E5%BD%A2%E5%AD%A6%E5%85%A5%E9%97%A8/202/%E5%9B%BE%E7%89%87/p4/SAT2.png" alt="SAT2"></p>
 <p>得到矩形区域内的元素和，再求样本均值就不在话下了。现在我们有了这一快速求均值的方法，再来看怎么求样本的方差</p>
-<p>在概率论中有这样一个公式，体现了方差和期望之间的关系</p>
-<script type="math/tex; mode=display">
-Var(X)=E(X^2)-E^2(X)</script><p>既然现在我们可以快速求$E(X)$，那么求$E(X^2)$就只需要在生成shadow map的时候额外计算一次光源空间深度的平方值就行了，将原来的shadow map储存在纹理的R通道，将square-depth map储存在G通道，完美解决</p>
+<p>在概率论中有这样一个公式，体现了方差和期望之间的关系<br>$$<br>Var(X)&#x3D;E(X^2)-E^2(X)<br>$$<br>既然现在我们可以快速求$E(X)$，那么求$E(X^2)$就只需要在生成shadow map的时候额外计算一次光源空间深度的平方值就行了，将原来的shadow map储存在纹理的R通道，将square-depth map储存在G通道，完美解决</p>
 <p>到此为止，样本均值和方差都变为了已知，那么定义假设中的概率密度函数也就非常方便了</p>
-<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/posts/5734/-STUDY-/college/%E9%97%AB%E4%BB%A4%E7%90%AA_%E5%9B%BE%E5%BD%A2%E5%AD%A6%E5%85%A5%E9%97%A8/202/%E5%9B%BE%E7%89%87/p4/%E6%AD%A3%E6%80%81.png" alt="正态"></p>
-<script type="math/tex; mode=display">
-CDF(x)=\int_{-\infin}^{x}PDF(t)\ dt</script><p>如图，左侧PDF中的阴影部分面积表示shadow map上比shading point深度小的纹素占比，也就是会产生遮挡的概率，那么问题就转化为如何求这个PDF的概率分布（CDF，定义为PDF的积分）</p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/posts/5734/-STUDY-/college/%E9%97%AB%E4%BB%A4%E7%90%AA_%E5%9B%BE%E5%BD%A2%E5%AD%A6%E5%85%A5%E9%97%A8/202/%E5%9B%BE%E7%89%87/p4/%E6%AD%A3%E6%80%81.png" alt="正态"><br>$$<br>CDF(x)&#x3D;\int_{-\infin}^{x}PDF(t)\ dt<br>$$<br>如图，左侧PDF中的阴影部分面积表示shadow map上比shading point深度小的纹素占比，也就是会产生遮挡的概率，那么问题就转化为如何求这个PDF的概率分布（CDF，定义为PDF的积分）</p>
 <p>可惜的是，大部分正态分布并不具备解析解，只能通过查表得到其数值解，就算c++中有内置的误差函数ERF可以专门用来求CDF数值解，这么做也是非常麻烦的。VSSM对于这个问题的解决方式，正是其精髓所在</p>
-<h4 id="切比雪夫近似"><a href="#切比雪夫近似" class="headerlink" title="切比雪夫近似"></a>切比雪夫近似</h4><p>我们知道，实时渲染中常常会把一些不等式当做约等式来使用，VSSM就利用了这一点，通过切比雪夫不等式，用求得的期望和方差近似的估计CDF的值。这同时也是VSSM的第二个大胆假设</p>
-<script type="math/tex; mode=display">
-P(x>t)\leq \frac{\sigma^2}{\sigma^2+(t-\mu)^2}\\
-\Rightarrow P(x>t)\approx \frac{\sigma^2}{\sigma^2+(t-\mu)^2}</script><p>这个约等式可以快速的求出下图中红色部分的概率，也就是$1-CDF(t)$，并且不仅仅是正态分布，它还适用于其他任何的单峰函数，这也是为什么VSSM不需要假设样本服从正态分布的原因</p>
+<h4 id="切比雪夫近似"><a href="#切比雪夫近似" class="headerlink" title="切比雪夫近似"></a>切比雪夫近似</h4><p>我们知道，实时渲染中常常会把一些不等式当做约等式来使用，VSSM就利用了这一点，通过切比雪夫不等式，用求得的期望和方差近似的估计CDF的值。这同时也是VSSM的第二个大胆假设<br>$$<br>P(x&gt;t)\leq \frac{\sigma^2}{\sigma^2+(t-\mu)^2}\<br>\Rightarrow P(x&gt;t)\approx \frac{\sigma^2}{\sigma^2+(t-\mu)^2}<br>$$<br>这个约等式可以快速的求出下图中红色部分的概率，也就是$1-CDF(t)$，并且不仅仅是正态分布，它还适用于其他任何的单峰函数，这也是为什么VSSM不需要假设样本服从正态分布的原因</p>
 <p>不过，切比雪夫近似也有它自己的局限性，那就是t必须位于均值右侧，即$t&gt;E(x)$时约等关系才成立（对正态分布这个其实很好解决，把t转化为$2\mu -t$就行了）</p>
-<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/posts/5734/-STUDY-/college/%E9%97%AB%E4%BB%A4%E7%90%AA_%E5%9B%BE%E5%BD%A2%E5%AD%A6%E5%85%A5%E9%97%A8/202/%E5%9B%BE%E7%89%87/p4/%E5%88%87%E6%AF%94%E9%9B%AA%E5%A4%AB%E8%BF%91%E4%BC%BC.png" alt></p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/posts/5734/-STUDY-/college/%E9%97%AB%E4%BB%A4%E7%90%AA_%E5%9B%BE%E5%BD%A2%E5%AD%A6%E5%85%A5%E9%97%A8/202/%E5%9B%BE%E7%89%87/p4/%E5%88%87%E6%AF%94%E9%9B%AA%E5%A4%AB%E8%BF%91%E4%BC%BC.png"></p>
 <p>至此，VSSM对PCSS第三步的加速就已经全部完成了，然而它对PCSS的第一步的优化我们却还只字未提，那么在这个步骤中，VSSM又是怎么做的呢？</p>
 <h4 id="Blocker-Search加速"><a href="#Blocker-Search加速" class="headerlink" title="Blocker Search加速"></a>Blocker Search加速</h4><p>如前文所述，我们在第一步的主要目标是计算遮挡物的平均深度，按PCSS的做法是要先对shadow map采样，判断哪些是遮挡物</p>
 <p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/posts/5734/-STUDY-/college/%E9%97%AB%E4%BB%A4%E7%90%AA_%E5%9B%BE%E5%BD%A2%E5%AD%A6%E5%85%A5%E9%97%A8/202/%E5%9B%BE%E7%89%87/p4/5x5.png" alt="5x5"></p>
-<p>VSSM却直接忽略了这一步，以上图5*5的范围为例，它将深度小于着色点的蓝色遮挡区域的平均深度记作$Z<em>{ooc}$，而深度大于着色点的红色非遮挡区域的平均深度记作$Z</em>{unooc}$，则易得</p>
-<script type="math/tex; mode=display">
-\frac{N1}N ·Z_{ooc}+\frac{N2}N ·Z_{unooc}=Z_{Avg}</script><p>其中$\frac{N1}N$和$\frac{N2}N$分别表示遮挡物和非遮挡物的占比，刚好可以用第三步完全一样的方法快速求得</p>
-<script type="math/tex; mode=display">
-\frac{N1}N=P(x>t)\\
-\frac{N2}N=1-P(x>t)</script><p>剩下还有$Z<em>{ooc}$和$Z</em>{unooc}$未知，在这里VSSM再一次做出大胆的假设，直接认为$Z<em>{unooc}=Z</em>{shading\ point}$，$Z_{ooc}$随之迎刃而解</p>
-<script type="math/tex; mode=display">
-Z_{ooc}=\frac{Z_{Avg}-\frac{N2}N ·Z_{unooc}}{\frac{N1}N}</script><p>如此假设不无它的道理，因为大多数情况下阴影的接受物都接近一个平面，但这也就意味着只要接受平面是曲面，或者遇到光线掠射的情况，VSSM就会出现一些问题</p>
+<p>VSSM却直接忽略了这一步，以上图5*5的范围为例，它将深度小于着色点的蓝色遮挡区域的平均深度记作$Z_{ooc}$，而深度大于着色点的红色非遮挡区域的平均深度记作$Z_{unooc}$，则易得<br>$$<br>\frac{N1}N ·Z_{ooc}+\frac{N2}N ·Z_{unooc}&#x3D;Z_{Avg}<br>$$<br>其中$\frac{N1}N$和$\frac{N2}N$分别表示遮挡物和非遮挡物的占比，刚好可以用第三步完全一样的方法快速求得<br>$$<br>\frac{N1}N&#x3D;P(x&gt;t)\<br>\frac{N2}N&#x3D;1-P(x&gt;t)<br>$$<br>剩下还有$Z_{ooc}$和$Z_{unooc}$未知，在这里VSSM再一次做出大胆的假设，直接认为$Z_{unooc}&#x3D;Z_{shading\ point}$，$Z_{ooc}$随之迎刃而解<br>$$<br>Z_{ooc}&#x3D;\frac{Z_{Avg}-\frac{N2}N ·Z_{unooc}}{\frac{N1}N}<br>$$<br>如此假设不无它的道理，因为大多数情况下阴影的接受物都接近一个平面，但这也就意味着只要接受平面是曲面，或者遇到光线掠射的情况，VSSM就会出现一些问题</p>
 <p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/posts/5734/-STUDY-/college/%E9%97%AB%E4%BB%A4%E7%90%AA_%E5%9B%BE%E5%BD%A2%E5%AD%A6%E5%85%A5%E9%97%A8/202/%E5%9B%BE%E7%89%87/p4/VSSM%E7%BB%93%E6%9E%9C.png" alt="VSSM结果"></p>
 <p>可以看到，VSSM计算的阴影结果非常不错</p>
 <p>总结一下，VSSM的实现过程如下：</p>
@@ -380,15 +319,13 @@ Z_{ooc}=\frac{Z_{Avg}-\frac{N2}N ·Z_{unooc}}{\frac{N1}N}</script><p>如此假�
 <li>使用切比雪夫近似，得到shading point的遮挡概率，写入Visibility</li>
 </ul>
 <p>虽然但是，现在工业界仍更倾向于选择PCSS，因为随着各种降噪方法的提出，人们对噪声的容忍度变得越来越高，此时稀疏采样的PCSS与VSSM之间的差距就显得微不足道了，这种情况下，使用VSSM可能会有得到错误结果的风险，开发者自然就更倾向于使用PCSS了</p>
-<div class="table-container">
 <table>
 <thead>
 <tr>
 <th>Q：如果场景中有物体移动，不就要实时更新mipmap么？</th>
 </tr>
 </thead>
-<tbody>
-<tr>
+<tbody><tr>
 <td><strong>A：没错，不仅是物体移动，只要生成了新的shadow map，就需要更新mipmap，所以还是存在一定开销的，但也不必过于担心，因为gpu对mipmap支持非常到位，可以认为基本不消耗时间</strong></td>
 </tr>
 <tr>
@@ -403,13 +340,18 @@ Z_{ooc}=\frac{Z_{Avg}-\frac{N2}N ·Z_{unooc}}{\frac{N1}N}</script><p>如此假�
 <tr>
 <td><strong>A：可以这么理解，但不能等价替换，可以将PCSS作为一个基准</strong></td>
 </tr>
-</tbody>
-</table>
-</div>
+</tbody></table>
 <h4 id="VSSM的缺陷"><a href="#VSSM的缺陷" class="headerlink" title="VSSM的缺陷"></a>VSSM的缺陷</h4><p>VSSM的缺陷主要表现在如下几点：</p>
 <ul>
 <li><p>漏光（Light Leakiing）：VSSM将遮挡物分布强行假设为单峰分布，但有时候会与实际情况相差很远，如下左图，如果实际的非遮挡区域占比比假设小，那么就会得到一个局部较亮的结果，导致漏光</p>
-<p>| <img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/posts/5734/-STUDY-/college/%E9%97%AB%E4%BB%A4%E7%90%AA_%E5%9B%BE%E5%BD%A2%E5%AD%A6%E5%85%A5%E9%97%A8/202/%E5%9B%BE%E7%89%87/p4/%E6%BC%8F%E5%85%89%20(1" alt="漏光 (1)">.png) | <img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/posts/5734/-STUDY-/college/%E9%97%AB%E4%BB%A4%E7%90%AA_%E5%9B%BE%E5%BD%A2%E5%AD%A6%E5%85%A5%E9%97%A8/202/%E5%9B%BE%E7%89%87/p4/%E6%BC%8F%E5%85%89%20(2" alt="漏光 (2)">.png) |<br>| —————————————————————————————— | —————————————————————————————— |</p>
+<table>
+<thead>
+<tr>
+<th><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/posts/5734/-STUDY-/college/%E9%97%AB%E4%BB%A4%E7%90%AA_%E5%9B%BE%E5%BD%A2%E5%AD%A6%E5%85%A5%E9%97%A8/202/%E5%9B%BE%E7%89%87/p4/%E6%BC%8F%E5%85%89%20(1).png" alt="漏光 (1)"></th>
+<th><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/posts/5734/-STUDY-/college/%E9%97%AB%E4%BB%A4%E7%90%AA_%E5%9B%BE%E5%BD%A2%E5%AD%A6%E5%85%A5%E9%97%A8/202/%E5%9B%BE%E7%89%87/p4/%E6%BC%8F%E5%85%89%20(2).png" alt="漏光 (2)"></th>
+</tr>
+</thead>
+</table>
 </li>
 <li><p>不连续阴影：在算$d_{blocker}$的时候，VSSM假设非遮挡平面深度都等于shading point深度，这会导致在阴影接受面不平整的时候出现阴影中断现象</p>
 <p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/posts/5734/-STUDY-/college/%E9%97%AB%E4%BB%A4%E7%90%AA_%E5%9B%BE%E5%BD%A2%E5%AD%A6%E5%85%A5%E9%97%A8/202/%E5%9B%BE%E7%89%87/p4/%E4%B8%8D%E8%BF%9E%E7%BB%AD%E9%98%B4%E5%BD%B1.png" alt="不连续阴影"></p>
@@ -420,95 +362,69 @@ Z_{ooc}=\frac{Z_{Avg}-\frac{N2}N ·Z_{unooc}}{\frac{N1}N}</script><p>如此假�
 <h4 id="MSM"><a href="#MSM" class="headerlink" title="MSM"></a>MSM</h4><p>就像VSSM的提出是为了改进PCSS，MSM（Moment Shadow Mapping）的存在是为了解决VSSM假设带来的一些缺陷</p>
 <p>其核心思想是，使用更高阶的矩来描述遮挡概率的CDF，使其更接近真实分布，从而避免漏光</p>
 <p>关于矩的概念，它是数学中对变量的一种特征度量值，最简单的就是一个数的几次方，统计学中的期望是一阶矩，方差是二阶矩，所以从这个角度理解，VSSM就相当于记录了前两阶的矩</p>
-<div class="table-container">
 <table>
 <thead>
 <tr>
-<th><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/posts/5734/-STUDY-/college/%E9%97%AB%E4%BB%A4%E7%90%AA_%E5%9B%BE%E5%BD%A2%E5%AD%A6%E5%85%A5%E9%97%A8/202/%E5%9B%BE%E7%89%87/p4/MSM%20(1" alt="MSM (1)">.png)</th>
-<th><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/posts/5734/-STUDY-/college/%E9%97%AB%E4%BB%A4%E7%90%AA_%E5%9B%BE%E5%BD%A2%E5%AD%A6%E5%85%A5%E9%97%A8/202/%E5%9B%BE%E7%89%87/p4/MSM%20(2" alt="MSM (2)">.png)</th>
-<th><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/posts/5734/-STUDY-/college/%E9%97%AB%E4%BB%A4%E7%90%AA_%E5%9B%BE%E5%BD%A2%E5%AD%A6%E5%85%A5%E9%97%A8/202/%E5%9B%BE%E7%89%87/p4/MSM%20(3" alt="MSM (3)">.png)</th>
+<th><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/posts/5734/-STUDY-/college/%E9%97%AB%E4%BB%A4%E7%90%AA_%E5%9B%BE%E5%BD%A2%E5%AD%A6%E5%85%A5%E9%97%A8/202/%E5%9B%BE%E7%89%87/p4/MSM%20(1).png" alt="MSM (1)"></th>
+<th><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/posts/5734/-STUDY-/college/%E9%97%AB%E4%BB%A4%E7%90%AA_%E5%9B%BE%E5%BD%A2%E5%AD%A6%E5%85%A5%E9%97%A8/202/%E5%9B%BE%E7%89%87/p4/MSM%20(2).png" alt="MSM (2)"></th>
+<th><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/posts/5734/-STUDY-/college/%E9%97%AB%E4%BB%A4%E7%90%AA_%E5%9B%BE%E5%BD%A2%E5%AD%A6%E5%85%A5%E9%97%A8/202/%E5%9B%BE%E7%89%87/p4/MSM%20(3).png" alt="MSM (3)"></th>
 </tr>
 </thead>
-<tbody>
-<tr>
-<td></td>
-</tr>
-</tbody>
 </table>
-</div>
 <p>使用更高阶的矩就能得到更好的拟合，但是如何用更高阶的矩描述CDF是一件非常复杂的事情，同样需要相当的额外空间开销和性能开销</p>
 <h3 id="距离场阴影（DFSS）"><a href="#距离场阴影（DFSS）" class="headerlink" title="距离场阴影（DFSS）"></a>距离场阴影（DFSS）</h3><h4 id="有向距离场（SDF）"><a href="#有向距离场（SDF）" class="headerlink" title="有向距离场（SDF）"></a>有向距离场（SDF）</h4><p>又称有符号距离场，是一种<strong>标量场</strong>，场中每一点都记录了<u>该点</u>到<u>定义该场的物体</u>之间的最小距离，并且用正负号表示该点在物体内还是在物体外，若距离为0，则认为该点在物体表面上</p>
 <p>课程一共提到了三种SDF的应用：字体渲染，几何形变和光线步进（Ray Marching）</p>
 <p>字体渲染方面，因为距离场记录的是标量信息，不会受到分辨率限制，并且在细微层面可以通过插值进行拟合，所以有时候能做出很好的抗锯齿效果，甚至能实现无限分辨率的字符（已在商用引擎中得到应用，但对中文支持欠佳）</p>
-<div class="table-container">
 <table>
 <thead>
 <tr>
-<th style="text-align:center">距离场可视化</th>
-<th style="text-align:center">距离场等值线</th>
-<th style="text-align:center">SDF字体渲染</th>
+<th align="center">距离场可视化</th>
+<th align="center">距离场等值线</th>
+<th align="center">SDF字体渲染</th>
 </tr>
 </thead>
-<tbody>
-<tr>
-<td style="text-align:center"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/posts/5734/-STUDY-/college/%E9%97%AB%E4%BB%A4%E7%90%AA_%E5%9B%BE%E5%BD%A2%E5%AD%A6%E5%85%A5%E9%97%A8/202/%E5%9B%BE%E7%89%87/p5/%E5%AD%97%E4%BD%93%E6%B8%B2%E6%9F%93%20(3" alt="字体渲染 (3)">.png)</td>
-<td style="text-align:center"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/posts/5734/-STUDY-/college/%E9%97%AB%E4%BB%A4%E7%90%AA_%E5%9B%BE%E5%BD%A2%E5%AD%A6%E5%85%A5%E9%97%A8/202/%E5%9B%BE%E7%89%87/p5/%E5%AD%97%E4%BD%93%E6%B8%B2%E6%9F%93%20(2" alt="字体渲染 (2)">.png)</td>
-<td style="text-align:center"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/posts/5734/-STUDY-/college/%E9%97%AB%E4%BB%A4%E7%90%AA_%E5%9B%BE%E5%BD%A2%E5%AD%A6%E5%85%A5%E9%97%A8/202/%E5%9B%BE%E7%89%87/p5/%E5%AD%97%E4%BD%93%E6%B8%B2%E6%9F%93%20(1" alt="字体渲染 (1)">.png)</td>
+<tbody><tr>
+<td align="center"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/posts/5734/-STUDY-/college/%E9%97%AB%E4%BB%A4%E7%90%AA_%E5%9B%BE%E5%BD%A2%E5%AD%A6%E5%85%A5%E9%97%A8/202/%E5%9B%BE%E7%89%87/p5/%E5%AD%97%E4%BD%93%E6%B8%B2%E6%9F%93%20(3).png" alt="字体渲染 (3)"></td>
+<td align="center"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/posts/5734/-STUDY-/college/%E9%97%AB%E4%BB%A4%E7%90%AA_%E5%9B%BE%E5%BD%A2%E5%AD%A6%E5%85%A5%E9%97%A8/202/%E5%9B%BE%E7%89%87/p5/%E5%AD%97%E4%BD%93%E6%B8%B2%E6%9F%93%20(2).png" alt="字体渲染 (2)"></td>
+<td align="center"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/posts/5734/-STUDY-/college/%E9%97%AB%E4%BB%A4%E7%90%AA_%E5%9B%BE%E5%BD%A2%E5%AD%A6%E5%85%A5%E9%97%A8/202/%E5%9B%BE%E7%89%87/p5/%E5%AD%97%E4%BD%93%E6%B8%B2%E6%9F%93%20(1).png" alt="字体渲染 (1)"></td>
 </tr>
-</tbody>
-</table>
-</div>
-<div class="table-container">
+</tbody></table>
 <table>
 <thead>
 <tr>
-<th style="text-align:center">三维距离场可视化</th>
+<th align="center">三维距离场可视化</th>
 </tr>
 </thead>
-<tbody>
-<tr>
-<td style="text-align:center"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/posts/5734/-STUDY-/college/%E9%97%AB%E4%BB%A4%E7%90%AA_%E5%9B%BE%E5%BD%A2%E5%AD%A6%E5%85%A5%E9%97%A8/202/%E5%9B%BE%E7%89%87/p5/%E4%B8%89%E7%BB%B4%E8%B7%9D%E7%A6%BB%E5%9C%BA%E5%8F%AF%E8%A7%86%E5%8C%96.png" alt="三维距离场可视化"></td>
+<tbody><tr>
+<td align="center"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/posts/5734/-STUDY-/college/%E9%97%AB%E4%BB%A4%E7%90%AA_%E5%9B%BE%E5%BD%A2%E5%AD%A6%E5%85%A5%E9%97%A8/202/%E5%9B%BE%E7%89%87/p5/%E4%B8%89%E7%BB%B4%E8%B7%9D%E7%A6%BB%E5%9C%BA%E5%8F%AF%E8%A7%86%E5%8C%96.png" alt="三维距离场可视化"></td>
 </tr>
-</tbody>
-</table>
-</div>
+</tbody></table>
 <p>而在几何方面，我们在101中讲距离函数的时候就提到过了，不同的物体有不同的距离场，在距离场与距离场间做插值运算，就能很好的进行混合过渡</p>
-<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/posts/5734/-STUDY-/college/%E9%97%AB%E4%BB%A4%E7%90%AA_%E5%9B%BE%E5%BD%A2%E5%AD%A6%E5%85%A5%E9%97%A8/202/%E5%9B%BE%E7%89%87/p5/%E5%87%A0%E4%BD%95%E5%BD%A2%E5%8F%98%20(1" alt="几何形变 (1)">.png)</p>
-<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/posts/5734/-STUDY-/college/%E9%97%AB%E4%BB%A4%E7%90%AA_%E5%9B%BE%E5%BD%A2%E5%AD%A6%E5%85%A5%E9%97%A8/202/%E5%9B%BE%E7%89%87/p5/%E5%87%A0%E4%BD%95%E5%BD%A2%E5%8F%98%20(2" alt="几何形变 (2)">.png)</p>
-<h4 id="Ray-Marching-amp-DFSS"><a href="#Ray-Marching-amp-DFSS" class="headerlink" title="Ray Marching &amp; DFSS"></a>Ray Marching &amp; DFSS</h4><p>我们的重心主要放在Ray Marching上。采用了SDF的光线步进算法提供了一种截然不同的与场景物体求交的方法，具体来说，当我们向场景中投射一根光线的时候，Ray Marching会依据场景中每个物体的SDF，在投射点位置选取一个最小距离作为安全距离当做步长，也就是说在以投射点为球心、安全距离为半径的球形范围内，不论光线方向为何，它都不会与场景内物体相交，而当光线按原来方向走过这一段步长后，它又可以在新的位置依据SDF计算出新的安全距离，以此类推，直到步进次数达到一定值或者步长小到一定范围，即可认为光线与物体相交，退出循环</p>
-<div class="table-container">
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/posts/5734/-STUDY-/college/%E9%97%AB%E4%BB%A4%E7%90%AA_%E5%9B%BE%E5%BD%A2%E5%AD%A6%E5%85%A5%E9%97%A8/202/%E5%9B%BE%E7%89%87/p5/%E5%87%A0%E4%BD%95%E5%BD%A2%E5%8F%98%20(1).png" alt="几何形变 (1)"></p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/posts/5734/-STUDY-/college/%E9%97%AB%E4%BB%A4%E7%90%AA_%E5%9B%BE%E5%BD%A2%E5%AD%A6%E5%85%A5%E9%97%A8/202/%E5%9B%BE%E7%89%87/p5/%E5%87%A0%E4%BD%95%E5%BD%A2%E5%8F%98%20(2).png" alt="几何形变 (2)"></p>
+<h4 id="Ray-Marching-DFSS"><a href="#Ray-Marching-DFSS" class="headerlink" title="Ray Marching &amp; DFSS"></a>Ray Marching &amp; DFSS</h4><p>我们的重心主要放在Ray Marching上。采用了SDF的光线步进算法提供了一种截然不同的与场景物体求交的方法，具体来说，当我们向场景中投射一根光线的时候，Ray Marching会依据场景中每个物体的SDF，在投射点位置选取一个最小距离作为安全距离当做步长，也就是说在以投射点为球心、安全距离为半径的球形范围内，不论光线方向为何，它都不会与场景内物体相交，而当光线按原来方向走过这一段步长后，它又可以在新的位置依据SDF计算出新的安全距离，以此类推，直到步进次数达到一定值或者步长小到一定范围，即可认为光线与物体相交，退出循环</p>
 <table>
 <thead>
 <tr>
-<th><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/posts/5734/-STUDY-/college/%E9%97%AB%E4%BB%A4%E7%90%AA_%E5%9B%BE%E5%BD%A2%E5%AD%A6%E5%85%A5%E9%97%A8/202/%E5%9B%BE%E7%89%87/p5/%E5%85%89%E7%BA%BF%E6%AD%A5%E8%BF%9B%20(3" alt="光线步进 (3)">.png)</th>
-<th><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/posts/5734/-STUDY-/college/%E9%97%AB%E4%BB%A4%E7%90%AA_%E5%9B%BE%E5%BD%A2%E5%AD%A6%E5%85%A5%E9%97%A8/202/%E5%9B%BE%E7%89%87/p5/%E5%85%89%E7%BA%BF%E6%AD%A5%E8%BF%9B%20(2" alt="光线步进 (2)">.png)</th>
-<th><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/posts/5734/-STUDY-/college/%E9%97%AB%E4%BB%A4%E7%90%AA_%E5%9B%BE%E5%BD%A2%E5%AD%A6%E5%85%A5%E9%97%A8/202/%E5%9B%BE%E7%89%87/p5/%E5%85%89%E7%BA%BF%E6%AD%A5%E8%BF%9B%20(1" alt="光线步进 (1)">.png)</th>
+<th><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/posts/5734/-STUDY-/college/%E9%97%AB%E4%BB%A4%E7%90%AA_%E5%9B%BE%E5%BD%A2%E5%AD%A6%E5%85%A5%E9%97%A8/202/%E5%9B%BE%E7%89%87/p5/%E5%85%89%E7%BA%BF%E6%AD%A5%E8%BF%9B%20(3).png" alt="光线步进 (3)"></th>
+<th><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/posts/5734/-STUDY-/college/%E9%97%AB%E4%BB%A4%E7%90%AA_%E5%9B%BE%E5%BD%A2%E5%AD%A6%E5%85%A5%E9%97%A8/202/%E5%9B%BE%E7%89%87/p5/%E5%85%89%E7%BA%BF%E6%AD%A5%E8%BF%9B%20(2).png" alt="光线步进 (2)"></th>
+<th><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/posts/5734/-STUDY-/college/%E9%97%AB%E4%BB%A4%E7%90%AA_%E5%9B%BE%E5%BD%A2%E5%AD%A6%E5%85%A5%E9%97%A8/202/%E5%9B%BE%E7%89%87/p5/%E5%85%89%E7%BA%BF%E6%AD%A5%E8%BF%9B%20(1).png" alt="光线步进 (1)"></th>
 </tr>
 </thead>
-<tbody>
-<tr>
-<td></td>
-</tr>
-</tbody>
 </table>
-</div>
 <p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/posts/5734/-STUDY-/college/%E9%97%AB%E4%BB%A4%E7%90%AA_%E5%9B%BE%E5%BD%A2%E5%AD%A6%E5%85%A5%E9%97%A8/202/%E5%9B%BE%E7%89%87/p5/Ray-Marching.gif" alt="Ray-Marching"></p>
 <p>现在可以对这个方法稍微做一个延伸，既然我们可以通过距离场算出安全距离，那么算出一根光线在当前位置的“安全角度”应该也是非常简单的，只需要用安全距离与累加的步长和做一步反三角运算就可以得到了。此时，我们连接面光源的中心与着色点，在这个方向上做Ray Marching，得到一系列安全角度后取个最小值作为最终的安全角度，这个角度越小，就说明光线被遮挡的概率越高，阴影就可以设置的越黑，反过来，当这个角度大于一定值时，就可以认为光线不被遮挡，不产生阴影</p>
-<p>不过，上面说的用反三角算安全角还是有点废性能，于是iq大佬就提出了一种实时渲染的近似方法：</p>
-<script type="math/tex; mode=display">
-arcsin\frac{SDF(p)}{p-o}\Longrightarrow min\{\frac{k·SDF(p)}{p-o},1.0\}</script><p>直接用一个k与sin值相乘，再截断在1以内直接作为Visibility的值（绝了wc），虽然说这么做近似非常胆大，但通过这种方式我们获得了一个非常好的控制参数——k</p>
+<p>不过，上面说的用反三角算安全角还是有点废性能，于是iq大佬就提出了一种实时渲染的近似方法：<br>$$<br>arcsin\frac{SDF(p)}{p-o}\Longrightarrow min{\frac{k·SDF(p)}{p-o},1.0}<br>$$<br>直接用一个k与sin值相乘，再截断在1以内直接作为Visibility的值（绝了wc），虽然说这么做近似非常胆大，但通过这种方式我们获得了一个非常好的控制参数——k</p>
 <p>同等安全角度下，k越小，visibility越小，半影区越大，阴影越软；k越大，visibility越容易被1截断，阴影越硬</p>
 <h4 id="性能分析"><a href="#性能分析" class="headerlink" title="性能分析"></a>性能分析</h4><p>DFSS是一种非常聪明 效果也非常好的阴影算法，但如果说DFSS比Shadow Map系列算法快的话其实是非常不公平的，因为DFSS本质上是一种预计算，而我们一般说的DFSS速度快，是忽略了它本身计算储存SDF的时间的，要知道，三维下的SDF在空间上的消耗可不是一般的大，尤其是对于场景内有物体发生形变的情况，还得重新计算SDF，从这点上来看，算上预处理的性能消耗，DFSS和SDF目前差距并不大，我们学习他只是为了参考它巧妙的处理方法而已</p>
 <p>至于如何生成SDF，如何储存，还有DFSS的一系列artifact，这里就不再展开了</p>
-<div class="table-container">
 <table>
 <thead>
 <tr>
 <th>Q：查询空间中某个点的距离场时需要遍历场景中所有物体吗</th>
 </tr>
 </thead>
-<tbody>
-<tr>
+<tbody><tr>
 <td><strong>A：不需要，预处理的时候每个物体单独算距离场，查询的时候只要取所有距离场在该位置的最小值即可</strong></td>
 </tr>
 <tr>
@@ -523,10 +439,8 @@ arcsin\frac{SDF(p)}{p-o}\Longrightarrow min\{\frac{k·SDF(p)}{p-o},1.0\}</script
 <tr>
 <td><strong>A：不是，只会更假</strong></td>
 </tr>
-</tbody>
-</table>
-</div>
-</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="https://YuiLu.github.io">Yui Lu</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="https://yuilu.github.io/posts/5734.html">https://yuilu.github.io/posts/5734.html</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://YuiLu.github.io" target="_blank">Yui Lu</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/GAMES202-Notes/">GAMES202, Notes</a></div><div class="post_share"><div class="social-share" data-image="https://cdn.jsdelivr.net/gh/YuiLu/Image_host@main/GAMES202/1.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/butterfly-extsrc/1.1.3/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdnjs.cloudflare.com/ajax/libs/butterfly-extsrc/1.1.3/sharejs/dist/js/social-share.min.js" defer></script></div></div><div class="post-reward"><div class="reward-button"><i class="fas fa-qrcode"></i>赞助</div><div class="reward-main"><ul class="reward-all"><li class="reward-item"><a href="/img/wechatpay.png" target="_blank"><img class="post-qr-code-img" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/wechatpay.png" alt="wechat"/></a><div class="post-qr-code-desc">wechat</div></li><li class="reward-item"><a href="/img/alipay.png" target="_blank"><img class="post-qr-code-img" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/alipay.png" alt="alipay"/></a><div class="post-qr-code-desc">alipay</div></li></ul></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/posts/12444.html" title="GAMES202个人笔记（1）-基础引入"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://cdn.jsdelivr.net/gh/YuiLu/Image_host@main/GAMES202/1.png" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">GAMES202个人笔记（1）-基础引入</div></div></a></div><div class="next-post pull-right"><a href="/posts/24703.html" title="GAMES101个人笔记（3）-实时环境光照"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://cdn.jsdelivr.net/gh/YuiLu/Image_host@main/GAMES202/2.png" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">GAMES101个人笔记（3）-实时环境光照</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/posts/12444.html" title="GAMES202个人笔记（1）-基础引入"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://cdn.jsdelivr.net/gh/YuiLu/Image_host@main/GAMES202/1.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-01-16</div><div class="title">GAMES202个人笔记（1）-基础引入</div></div></a></div><div><a href="/posts/24703.html" title="GAMES101个人笔记（3）-实时环境光照"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://cdn.jsdelivr.net/gh/YuiLu/Image_host@main/GAMES202/2.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-01-14</div><div class="title">GAMES101个人笔记（3）-实时环境光照</div></div></a></div><div><a href="/posts/25879.html" title="GAMES202个人笔记（4）-实时全局光照"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://cdn.jsdelivr.net/gh/YuiLu/Image_host@main/GAMES202/2.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-01-13</div><div class="title">GAMES202个人笔记（4）-实时全局光照</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/bocchi.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Yui Lu</div><div class="author-info__description">Ciallo～(∠・ω< )⌒☆</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">15</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">2</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">0</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://www.zhihu.com/people/zhang-jia-hui-55-74"><i class="fab fa-zhihu"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/YuiLu" target="_blank" title="Github"><i class="fab fa-github" style="color: #24292e;"></i></a><a class="social-icon" href="tencent://message/?Menu=yes&amp;uin=2903077287" target="_blank" title="'#24292e'"><i class="fab fa-qq"></i></a><a class="social-icon" href="mailto:b2903077287@gmail.com" target="_blank" title="Email"><i class="fas fa-envelope" style="color: #24292e;"></i></a><a class="social-icon" href="https://space.bilibili.com/23208863?spm_id_from=333.1007.0.0" target="_blank" title="bilibili"><i class="fab fa-bilibili" style="color: #24292e;"></i></a></div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#Shadow-Mapping-%E9%98%B4%E5%BD%B1%E6%98%A0%E5%B0%84"><span class="toc-text">Shadow Mapping 阴影映射</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Recap"><span class="toc-text">Recap</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%98%B4%E5%BD%B1%E6%98%A0%E5%B0%84%E8%83%8C%E5%90%8E%E7%9A%84%E6%95%B0%E5%AD%A6%E5%8E%9F%E7%90%86"><span class="toc-text">阴影映射背后的数学原理</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B8%90%E8%BF%9B%E7%99%BE%E5%88%86%E6%AF%94%E6%BB%A4%E6%B3%A2%EF%BC%88PCF%EF%BC%89"><span class="toc-text">渐进百分比滤波（PCF）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B8%90%E8%BF%9B%E7%99%BE%E5%88%86%E6%AF%94%E8%BD%AF%E9%98%B4%E5%BD%B1%EF%BC%88PCSS%EF%BC%89"><span class="toc-text">渐进百分比软阴影（PCSS）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%96%B9%E5%B7%AE%E9%98%B4%E5%BD%B1%E8%B4%B4%E5%9B%BE%EF%BC%88VSSM-VSM%EF%BC%89"><span class="toc-text">方差阴影贴图（VSSM &#x2F; VSM）</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%9D%87%E5%80%BC-amp-%E6%96%B9%E5%B7%AE"><span class="toc-text">均值&amp;方差</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%88%87%E6%AF%94%E9%9B%AA%E5%A4%AB%E8%BF%91%E4%BC%BC"><span class="toc-text">切比雪夫近似</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Blocker-Search%E5%8A%A0%E9%80%9F"><span class="toc-text">Blocker Search加速</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#VSSM%E7%9A%84%E7%BC%BA%E9%99%B7"><span class="toc-text">VSSM的缺陷</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#MSM"><span class="toc-text">MSM</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%B7%9D%E7%A6%BB%E5%9C%BA%E9%98%B4%E5%BD%B1%EF%BC%88DFSS%EF%BC%89"><span class="toc-text">距离场阴影（DFSS）</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%9C%89%E5%90%91%E8%B7%9D%E7%A6%BB%E5%9C%BA%EF%BC%88SDF%EF%BC%89"><span class="toc-text">有向距离场（SDF）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Ray-Marching-amp-DFSS"><span class="toc-text">Ray Marching &amp; DFSS</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%80%A7%E8%83%BD%E5%88%86%E6%9E%90"><span class="toc-text">性能分析</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/posts/12444.html" title="GAMES202个人笔记（1）-基础引入"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://cdn.jsdelivr.net/gh/YuiLu/Image_host@main/GAMES202/1.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="GAMES202个人笔记（1）-基础引入"/></a><div class="content"><a class="title" href="/posts/12444.html" title="GAMES202个人笔记（1）-基础引入">GAMES202个人笔记（1）-基础引入</a><time datetime="2024-01-16T10:00:00.000Z" title="发表于 2024-01-16 18:00:00">2024-01-16</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/5734.html" title="GAMES202个人笔记（2）-实时阴影"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://cdn.jsdelivr.net/gh/YuiLu/Image_host@main/GAMES202/1.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="GAMES202个人笔记（2）-实时阴影"/></a><div class="content"><a class="title" href="/posts/5734.html" title="GAMES202个人笔记（2）-实时阴影">GAMES202个人笔记（2）-实时阴影</a><time datetime="2024-01-15T10:00:00.000Z" title="发表于 2024-01-15 18:00:00">2024-01-15</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/24703.html" title="GAMES101个人笔记（3）-实时环境光照"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://cdn.jsdelivr.net/gh/YuiLu/Image_host@main/GAMES202/2.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="GAMES101个人笔记（3）-实时环境光照"/></a><div class="content"><a class="title" href="/posts/24703.html" title="GAMES101个人笔记（3）-实时环境光照">GAMES101个人笔记（3）-实时环境光照</a><time datetime="2024-01-14T10:00:00.000Z" title="发表于 2024-01-14 18:00:00">2024-01-14</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/25879.html" title="GAMES202个人笔记（4）-实时全局光照"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://cdn.jsdelivr.net/gh/YuiLu/Image_host@main/GAMES202/2.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="GAMES202个人笔记（4）-实时全局光照"/></a><div class="content"><a class="title" href="/posts/25879.html" title="GAMES202个人笔记（4）-实时全局光照">GAMES202个人笔记（4）-实时全局光照</a><time datetime="2024-01-13T10:00:00.000Z" title="发表于 2024-01-13 18:00:00">2024-01-13</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/27132.html" title="GAMES202个人笔记（5）-基于物理的实时渲染"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://cdn.jsdelivr.net/gh/YuiLu/Image_host@main/GAMES202/3.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="GAMES202个人笔记（5）-基于物理的实时渲染"/></a><div class="content"><a class="title" href="/posts/27132.html" title="GAMES202个人笔记（5）-基于物理的实时渲染">GAMES202个人笔记（5）-基于物理的实时渲染</a><time datetime="2024-01-12T10:00:00.000Z" title="发表于 2024-01-12 18:00:00">2024-01-12</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2023 - 2024 By Yui Lu</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="translateLink" type="button" title="简繁转换">繁</button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-butterfly/4.12.0/js/utils.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-butterfly/4.12.0/js/main.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-butterfly/4.12.0/js/tw_cn.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fancyapps-ui/5.0.32/fancybox/fancybox.umd.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-lazyload/17.8.5/lazyload.iife.min.js"></script><div class="js-pjax"><script>if (!window.MathJax) {
+</tbody></table>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="https://YuiLu.github.io">Yui Lu</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="https://yuilu.github.io/posts/5734.html">https://yuilu.github.io/posts/5734.html</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://YuiLu.github.io" target="_blank">Yui Lu</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/Notes/">Notes</a><a class="post-meta__tags" href="/tags/GAMES202/">GAMES202</a></div><div class="post_share"><div class="social-share" data-image="https://cdn.jsdelivr.net/gh/YuiLu/Image_host@main/GAMES202/1.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/butterfly-extsrc/1.1.3/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdnjs.cloudflare.com/ajax/libs/butterfly-extsrc/1.1.3/sharejs/dist/js/social-share.min.js" defer></script></div></div><div class="post-reward"><div class="reward-button"><i class="fas fa-qrcode"></i>赞助</div><div class="reward-main"><ul class="reward-all"><li class="reward-item"><a href="/img/wechatpay.png" target="_blank"><img class="post-qr-code-img" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/wechatpay.png" alt="wechat"/></a><div class="post-qr-code-desc">wechat</div></li><li class="reward-item"><a href="/img/alipay.png" target="_blank"><img class="post-qr-code-img" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/alipay.png" alt="alipay"/></a><div class="post-qr-code-desc">alipay</div></li></ul></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/posts/12444.html" title="GAMES202个人笔记（1）-基础引入"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://cdn.jsdelivr.net/gh/YuiLu/Image_host@main/GAMES202/1.png" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">GAMES202个人笔记（1）-基础引入</div></div></a></div><div class="next-post pull-right"><a href="/posts/24703.html" title="GAMES202个人笔记（3）-实时环境光照"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://cdn.jsdelivr.net/gh/YuiLu/Image_host@main/GAMES202/2.png" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">GAMES202个人笔记（3）-实时环境光照</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/posts/12444.html" title="GAMES202个人笔记（1）-基础引入"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://cdn.jsdelivr.net/gh/YuiLu/Image_host@main/GAMES202/1.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-01-16</div><div class="title">GAMES202个人笔记（1）-基础引入</div></div></a></div><div><a href="/posts/24703.html" title="GAMES202个人笔记（3）-实时环境光照"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://cdn.jsdelivr.net/gh/YuiLu/Image_host@main/GAMES202/2.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-01-14</div><div class="title">GAMES202个人笔记（3）-实时环境光照</div></div></a></div><div><a href="/posts/7551.html" title="GAMES202个人笔记（6）-实时光线追踪"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://cdn.jsdelivr.net/gh/YuiLu/Image_host@main/GAMES202/4.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-01-11</div><div class="title">GAMES202个人笔记（6）-实时光线追踪</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/bocchi.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Yui Lu</div><div class="author-info__description">Ciallo～(∠・ω< )⌒☆</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">19</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">6</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">0</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://www.zhihu.com/people/zhang-jia-hui-55-74"><i class="fab fa-zhihu"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/YuiLu" target="_blank" title="Github"><i class="fab fa-github" style="color: #24292e;"></i></a><a class="social-icon" href="tencent://message/?Menu=yes&amp;uin=2903077287" target="_blank" title="'#24292e'"><i class="fab fa-qq"></i></a><a class="social-icon" href="mailto:b2903077287@gmail.com" target="_blank" title="Email"><i class="fas fa-envelope" style="color: #24292e;"></i></a><a class="social-icon" href="https://space.bilibili.com/23208863?spm_id_from=333.1007.0.0" target="_blank" title="bilibili"><i class="fab fa-bilibili" style="color: #24292e;"></i></a></div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#Shadow-Mapping-%E9%98%B4%E5%BD%B1%E6%98%A0%E5%B0%84"><span class="toc-text">Shadow Mapping 阴影映射</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Recap"><span class="toc-text">Recap</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%98%B4%E5%BD%B1%E6%98%A0%E5%B0%84%E8%83%8C%E5%90%8E%E7%9A%84%E6%95%B0%E5%AD%A6%E5%8E%9F%E7%90%86"><span class="toc-text">阴影映射背后的数学原理</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B8%90%E8%BF%9B%E7%99%BE%E5%88%86%E6%AF%94%E6%BB%A4%E6%B3%A2%EF%BC%88PCF%EF%BC%89"><span class="toc-text">渐进百分比滤波（PCF）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B8%90%E8%BF%9B%E7%99%BE%E5%88%86%E6%AF%94%E8%BD%AF%E9%98%B4%E5%BD%B1%EF%BC%88PCSS%EF%BC%89"><span class="toc-text">渐进百分比软阴影（PCSS）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%96%B9%E5%B7%AE%E9%98%B4%E5%BD%B1%E8%B4%B4%E5%9B%BE%EF%BC%88VSSM-VSM%EF%BC%89"><span class="toc-text">方差阴影贴图（VSSM &#x2F; VSM）</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%9D%87%E5%80%BC-%E6%96%B9%E5%B7%AE"><span class="toc-text">均值&amp;方差</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%88%87%E6%AF%94%E9%9B%AA%E5%A4%AB%E8%BF%91%E4%BC%BC"><span class="toc-text">切比雪夫近似</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Blocker-Search%E5%8A%A0%E9%80%9F"><span class="toc-text">Blocker Search加速</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#VSSM%E7%9A%84%E7%BC%BA%E9%99%B7"><span class="toc-text">VSSM的缺陷</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#MSM"><span class="toc-text">MSM</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%B7%9D%E7%A6%BB%E5%9C%BA%E9%98%B4%E5%BD%B1%EF%BC%88DFSS%EF%BC%89"><span class="toc-text">距离场阴影（DFSS）</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%9C%89%E5%90%91%E8%B7%9D%E7%A6%BB%E5%9C%BA%EF%BC%88SDF%EF%BC%89"><span class="toc-text">有向距离场（SDF）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Ray-Marching-DFSS"><span class="toc-text">Ray Marching &amp; DFSS</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%80%A7%E8%83%BD%E5%88%86%E6%9E%90"><span class="toc-text">性能分析</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/posts/21880.html" title="Billboard与施密特正交"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/images/cover/%E8%8A%99%E8%8E%89%E8%8E%B2_%E5%8B%87%E8%80%85%E5%8E%BB%E4%B8%96%E7%9A%84%E7%AC%AC100%E5%B9%B4_%E6%99%93%E7%9B%86%E5%8F%8B%E7%9A%84%E6%8F%92%E7%94%BB.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Billboard与施密特正交"/></a><div class="content"><a class="title" href="/posts/21880.html" title="Billboard与施密特正交">Billboard与施密特正交</a><time datetime="2024-01-17T14:57:44.000Z" title="发表于 2024-01-17 22:57:44">2024-01-17</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/44076.html" title="从零开始的URP仿原神角色渲染"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/images/cover/result.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="从零开始的URP仿原神角色渲染"/></a><div class="content"><a class="title" href="/posts/44076.html" title="从零开始的URP仿原神角色渲染">从零开始的URP仿原神角色渲染</a><time datetime="2024-01-17T08:00:00.000Z" title="发表于 2024-01-17 16:00:00">2024-01-17</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/16402.html" title="B样条曲线-个人笔记"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/images/cover/@oekaki_bibbi%20%E7%B5%90%E6%9D%9F%E3%83%90%E3%83%B3%E3%83%89%E6%81%92%E6%98%9F%E3%81%86%E3%81%8A%E3%81%8A%E3%81%8A%E3%81%8A%E3%81%8A%EF%BC%81%E5%86%8D%E6%8E%B2.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="B样条曲线-个人笔记"/></a><div class="content"><a class="title" href="/posts/16402.html" title="B样条曲线-个人笔记">B样条曲线-个人笔记</a><time datetime="2024-01-17T07:00:00.000Z" title="发表于 2024-01-17 15:00:00">2024-01-17</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/12444.html" title="GAMES202个人笔记（1）-基础引入"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://cdn.jsdelivr.net/gh/YuiLu/Image_host@main/GAMES202/1.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="GAMES202个人笔记（1）-基础引入"/></a><div class="content"><a class="title" href="/posts/12444.html" title="GAMES202个人笔记（1）-基础引入">GAMES202个人笔记（1）-基础引入</a><time datetime="2024-01-16T10:00:00.000Z" title="发表于 2024-01-16 18:00:00">2024-01-16</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/5734.html" title="GAMES202个人笔记（2）-实时阴影"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://cdn.jsdelivr.net/gh/YuiLu/Image_host@main/GAMES202/1.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="GAMES202个人笔记（2）-实时阴影"/></a><div class="content"><a class="title" href="/posts/5734.html" title="GAMES202个人笔记（2）-实时阴影">GAMES202个人笔记（2）-实时阴影</a><time datetime="2024-01-15T10:00:00.000Z" title="发表于 2024-01-15 18:00:00">2024-01-15</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2023 - 2024 By Yui Lu</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="translateLink" type="button" title="简繁转换">繁</button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-butterfly/4.12.0/js/utils.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-butterfly/4.12.0/js/main.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-butterfly/4.12.0/js/tw_cn.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fancyapps-ui/5.0.32/fancybox/fancybox.umd.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-lazyload/17.8.5/lazyload.iife.min.js"></script><div class="js-pjax"><script>if (!window.MathJax) {
   window.MathJax = {
     tex: {
       inlineMath: [['$', '$'], ['\\(', '\\)']],
