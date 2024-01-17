@@ -1,0 +1,597 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>GAMES202个人笔记（4）-实时全局光照 | Yui Lu</title><meta name="author" content="Yui Lu"><meta name="copyright" content="Yui Lu"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="图片与文字施工中~">
+<meta property="og:type" content="article">
+<meta property="og:title" content="GAMES202个人笔记（4）-实时全局光照">
+<meta property="og:url" content="https://yuilu.github.io/posts/25879.html">
+<meta property="og:site_name" content="Yui Lu">
+<meta property="og:description" content="图片与文字施工中~">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/YuiLu/Image_host@main/GAMES202/2.png">
+<meta property="article:published_time" content="2024-01-13T10:00:00.000Z">
+<meta property="article:modified_time" content="2024-01-17T11:13:20.424Z">
+<meta property="article:author" content="Yui Lu">
+<meta property="article:tag" content="GAMES202, Notes">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/YuiLu/Image_host@main/GAMES202/2.png"><link rel="shortcut icon" href="/img/favicon-32x32-Arlecchino.png"><link rel="canonical" href="https://yuilu.github.io/posts/25879.html"><link rel="preconnect" href="//cdnjs.cloudflare.com"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><meta/><link rel="stylesheet" href="/css/index.css?v=4.12.0"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancyapps-ui/5.0.32/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":true,"top_n_per_article":1,"unescape":false,"languages":{"hits_empty":"找不到您查询的内容：${query}","hits_stats":"共找到 ${hits} 篇文章"}},
+  translate: {"defaultEncoding":2,"translateDelay":0,"msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"簡"},
+  noticeOutdate: {"limitDay":730,"position":"top","messagePrev":"It has been","messageNext":"days since the last update, the content of the article may be outdated."},
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdnjs.cloudflare.com/ajax/libs/egjs-infinitegrid/4.11.0/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyload: true,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: true,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'GAMES202个人笔记（4）-实时全局光照',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2024-01-17 19:13:20'
+}</script><script>(win=>{
+      win.saveToLocal = {
+        set: (key, value, ttl) => {
+          if (ttl === 0) return
+          const now = Date.now()
+          const expiry = now + ttl * 86400000
+          const item = {
+            value,
+            expiry
+          }
+          localStorage.setItem(key, JSON.stringify(item))
+        },
+      
+        get: key => {
+          const itemStr = localStorage.getItem(key)
+      
+          if (!itemStr) {
+            return undefined
+          }
+          const item = JSON.parse(itemStr)
+          const now = Date.now()
+      
+          if (now > item.expiry) {
+            localStorage.removeItem(key)
+            return undefined
+          }
+          return item.value
+        }
+      }
+    
+      win.getScript = (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        script.onerror = reject
+        script.onload = script.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          script.onload = script.onreadystatechange = null
+          resolve()
+        }
+
+        Object.keys(attr).forEach(key => {
+          script.setAttribute(key, attr[key])
+        })
+
+        document.head.appendChild(script)
+      })
+    
+      win.getCSS = (url, id = false) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onerror = reject
+        link.onload = link.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          link.onload = link.onreadystatechange = null
+          resolve()
+        }
+        document.head.appendChild(link)
+      })
+    
+      win.activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+        if (t === 'dark') activateDarkMode()
+        else if (t === 'light') activateLightMode()
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+      const detectApple = () => {
+        if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+          document.documentElement.classList.add('apple')
+        }
+      }
+      detectApple()
+    })(window)</script><meta name="generator" content="Hexo 7.0.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/bocchi.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">15</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">2</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">0</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Timeline</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page group hide" href="javascript:void(0);"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/notes/"><i class="fa-fw fas fa-edit"></i><span> Note</span></a></li><li><a class="site-page child" href="/blogs/"><i class="fa-fw fas fa-file-alt"></i><span> Blog</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fa fa-heartbeat"></i><span> Life</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/travel/"><i class="fa-fw fas fa-plane-departure"></i><span> Travel</span></a></li><li><a class="site-page child" href="/animes/"><i class="fa-fw fas fa-mug-hot"></i><span> ACGN</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-user"></i><span> About</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/about_cn/"><span> 简体中文</span></a></li><li><a class="site-page child" href="/about_en/"><span> English</span></a></li></ul></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('/images/GAMES202_topimg/4.png')"><nav id="nav"><span id="blog-info"><a href="/" title="Yui Lu"><span class="site-name">Yui Lu</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Timeline</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page group hide" href="javascript:void(0);"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/notes/"><i class="fa-fw fas fa-edit"></i><span> Note</span></a></li><li><a class="site-page child" href="/blogs/"><i class="fa-fw fas fa-file-alt"></i><span> Blog</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fa fa-heartbeat"></i><span> Life</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/travel/"><i class="fa-fw fas fa-plane-departure"></i><span> Travel</span></a></li><li><a class="site-page child" href="/animes/"><i class="fa-fw fas fa-mug-hot"></i><span> ACGN</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-user"></i><span> About</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/about_cn/"><span> 简体中文</span></a></li><li><a class="site-page child" href="/about_en/"><span> English</span></a></li></ul></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">GAMES202个人笔记（4）-实时全局光照<a class="post-edit-link" href="null_posts/GAMES202个人笔记（4）-实时全局光照.md" title="编辑" target="_blank"><i class="fas fa-pencil-alt"></i></a></h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2024-01-13T10:00:00.000Z" title="发表于 2024-01-13 18:00:00">2024-01-13</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2024-01-17T11:13:20.424Z" title="更新于 2024-01-17 19:13:20">2024-01-17</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="GAMES202个人笔记（4）-实时全局光照"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h3 id="Recap"><a href="#Recap" class="headerlink" title="Recap"></a>Recap</h3><p>1、全局光照=直接光照+间接光照，是指通过模拟光线的传播路径，将物体反射的间接光纳入计算，从而提高结果真实感的一种渲染技术（如图中金属球的焦散，蜡烛的次表面）</p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/posts/25879/-STUDY-/college/%E9%97%AB%E4%BB%A4%E7%90%AA_%E5%9B%BE%E5%BD%A2%E5%AD%A6%E5%85%A5%E9%97%A8/202/%E5%9B%BE%E7%89%87/p7/%E5%85%A8%E5%B1%80%E5%85%89%E7%85%A7.png" alt="全局光照"></p>
+<p>实时渲染中的全局光照，一般就是指如何<strong>简单而快速</strong>地计算比直接光照<strong>多一次bounce</strong>的光照结果</p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/posts/25879/-STUDY-/college/%E9%97%AB%E4%BB%A4%E7%90%AA_%E5%9B%BE%E5%BD%A2%E5%AD%A6%E5%85%A5%E9%97%A8/202/%E5%9B%BE%E7%89%87/p7/%E5%A4%9A%E4%B8%80%E6%AC%A1bounce.png" alt="多一次bounce"></p>
+<p>2、辐射度量学相关概念：</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:center">物理量</th>
+<th style="text-align:center">符号</th>
+<th style="text-align:center">中文翻译</th>
+<th style="text-align:center">简单定义</th>
+<th style="text-align:center">单位</th>
+<th style="text-align:center">公式</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">Radiant Energy</td>
+<td style="text-align:center">Q</td>
+<td style="text-align:center">辐射能量</td>
+<td style="text-align:center">电磁波形式的能量</td>
+<td style="text-align:center">焦耳（J）</td>
+<td style="text-align:center">\</td>
+</tr>
+<tr>
+<td style="text-align:center">Radiant Flux</td>
+<td style="text-align:center">P</td>
+<td style="text-align:center">辐射功率/辐射通量</td>
+<td style="text-align:center">单位时间内的辐射能量</td>
+<td style="text-align:center">瓦特（w）</td>
+<td style="text-align:center">$P=\frac{dQ}{dt}$</td>
+</tr>
+<tr>
+<td style="text-align:center">Radiant Intensity</td>
+<td style="text-align:center">I</td>
+<td style="text-align:center">辐射强度</td>
+<td style="text-align:center">点源向某单位立体角发射的辐射功率</td>
+<td style="text-align:center">w/sr</td>
+<td style="text-align:center">$I=\frac{dP}{d\omega}$</td>
+</tr>
+<tr>
+<td style="text-align:center">Irradiance</td>
+<td style="text-align:center">E</td>
+<td style="text-align:center">辐（射）照度</td>
+<td style="text-align:center">受照面单位面积上的辐射功率</td>
+<td style="text-align:center">w$/m^2$</td>
+<td style="text-align:center">$E=\frac{dP}{dA}$</td>
+</tr>
+<tr>
+<td style="text-align:center">Radiance</td>
+<td style="text-align:center">L</td>
+<td style="text-align:center">辐（射）亮度</td>
+<td style="text-align:center">单位投影面积、单位立体角上的辐射功率</td>
+<td style="text-align:center">w$/m^2$sr</td>
+<td style="text-align:center">$L=\frac{d^2P}{dAd\omega cos(\theta)}$</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/posts/25879/-STUDY-/college/%E9%97%AB%E4%BB%A4%E7%90%AA_%E5%9B%BE%E5%BD%A2%E5%AD%A6%E5%85%A5%E9%97%A8/202/%E5%9B%BE%E7%89%87/p7/%E8%BE%90%E5%B0%84%E5%BA%A6%E9%87%8F%E5%AD%A6%E7%9B%B8%E5%85%B3%E6%A6%82%E5%BF%B5.png" alt="辐射度量学相关概念"></p>
+<p><a target="_blank" rel="noopener" href="https://ciechanow.ski/lights-and-shadows/">Lights and Shadows – Bartosz Ciechanowski</a> 安利一个网站，可以很好的帮助理解这块概念</p>
+<p>3、BRDF的定义：</p>
+<script type="math/tex; mode=display">
+f_r(\omega_i\rightarrow\omega_o)=\frac{dL(\omega_o)}{dE(\omega_i)}=\frac{吸收后向某立体角方向辐射出去的 Radiance}{辐射前某单位面积dA接收到的Irradiance}</script><p>4、对光源采样的渲染方程：</p>
+<script type="math/tex; mode=display">
+L(p,\omega_o)=\int_{\Omega+} L(p,\omega_i)·f_r(p,\omega_i \rightarrow \omega_o)·cos\theta \ d\omega_i\\
+=\int_{\Omega+}L(p,\omega_i)·f_r(p,\omega_i\rightarrow\omega_o)·\frac{cos\theta ·
+cos\theta'}{\abs{x'-x}^2} \ dA</script><p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/posts/25879/-STUDY-/college/%E9%97%AB%E4%BB%A4%E7%90%AA_%E5%9B%BE%E5%BD%A2%E5%AD%A6%E5%85%A5%E9%97%A8/202/%E5%9B%BE%E7%89%87/p7/%E5%85%89%E6%BA%90%E9%87%87%E6%A0%B7%E6%B8%B2%E6%9F%93%E6%96%B9%E7%A8%8B.png" alt="光源采样渲染方程"></p>
+<p>（建议重新过一遍101 p16）</p>
+<h3 id="图像空间方法"><a href="#图像空间方法" class="headerlink" title="图像空间方法"></a>图像空间方法</h3><h4 id="反射阴影贴图（RSM）"><a href="#反射阴影贴图（RSM）" class="headerlink" title="反射阴影贴图（RSM）"></a>反射阴影贴图（RSM）</h4><p>参考：<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/357259069">【论文复现】Reflective Shadow Maps</a></p>
+<h5 id="基本思路"><a href="#基本思路" class="headerlink" title="基本思路"></a>基本思路</h5><p>既然实时全局光照只计算比直接光照多一次bounce的间接光照，那么问题就自然分为了两个部分：</p>
+<p>1° 场景中哪些表面会被直接光照影响，反射出间接光</p>
+<p>2° 如何计算这些表面对着色点p的贡献</p>
+<p>对于这两个问题，RSM的思路是通过shadow map获取直接光照的影响区域，再根据shadow map的分辨率将这些区域微元化，把其中每一个像素（或者说surface patch）都当做一个次级光源进行计算，如图</p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/posts/25879/-STUDY-/college/%E9%97%AB%E4%BB%A4%E7%90%AA_%E5%9B%BE%E5%BD%A2%E5%AD%A6%E5%85%A5%E9%97%A8/202/%E5%9B%BE%E7%89%87/p7/VPL.png" alt="VPL"></p>
+<p>这个概念其实和离线渲染中的虚拟点光源（Virtual Point Light，VPL）有些类似，唯一的区别在于，这里RSM会将所有次级光源的表面设为diffuse，以摆脱这些surface patch对视角方向的依赖（如果不这么设置，次级光源是glossy的话，计算量会变得非常恐怖），又因为我们无法对每个次级光源都生成一张阴影贴图，所以在实时渲染中间接光通常不会考虑Visibility的大小，那么现在连接pq，我们所要计算的虚拟光源贡献就是在q点处出射的radiance大小</p>
+<script type="math/tex; mode=display">
+L_o(p,w_o)=\int_{\Omega_{patch}}L(p,w_i) V(p,w_i)·f_r(p,\omega_i,\omega_o)·cos\theta_i\ dw_i\\
+=\int_{A_{patch}} L(q \rightarrow p)f_r(p,q \rightarrow p,\omega_o)·
+\frac{cos\theta_p · cos\theta_q}{\abs{q-p}^2}\, \mathrm{d}A</script><p>上式中，因为光源面积是阴影贴图上的一系列像素，所以可以直接当做$dA$处理</p>
+<p>由brdf定义$f_r(\omega_i\rightarrow\omega_o)=\frac{dL(\omega_o)}{dE(\omega_i)}$，得$L(q \rightarrow p)=f_r·\frac{\phi}{dA}$，代入渲染方程，原式化简如下</p>
+<script type="math/tex; mode=display">
+L_o(p,w_o)=\phi ·f_r^2(p,q \rightarrow p,\omega_o)·
+\frac{cos\theta_p · cos\theta_q}{\abs{q-p}^2}</script><p>又由假设中的diffuse次级光源，可知$f_r$是一常数，合并参数，最后就可以得到下面这个式子（老师的写法）：</p>
+<script type="math/tex; mode=display">
+L_o(p,w_o)=\phi_p·\frac{cos\theta_p · cos\theta_q}{\abs{q-p}^2}\\</script><p>至于老师说的paper里的那个分母中的4次方，则是因为分子未做归一化导致的，后来在p9开头有做澄清（硬盘装不下.jpg）</p>
+<p>两个式子都没有错，这里把字母全都做了一个统一，方便比较：</p>
+<script type="math/tex; mode=display">
+L_o(p,w_o)
+=\phi_p·\frac{max\{ 0, n_p·\frac{q-p}{\abs{q-p}} \} · max\{ 0, n_q·\frac{p-q}{\abs{p-q}}\} }{\abs{q-p}^2}\\
+=\phi_p·\frac{max\{ 0, n_p·(q-p) \} · max\{ 0, n_q·(p-q) \} }{\abs{q-p}^4}</script><p>到这里为止，算法的核心思想就已经介绍完毕了，但如果说要去真正实现它，那还是存在着一些问题的</p>
+<h5 id="算法优化"><a href="#算法优化" class="headerlink" title="算法优化"></a>算法优化</h5><p>试想按照前面的思路去计算场景中一个点的间接光，如果每个着色点所使用的shadow map分辨率都是512*512，那就意味着要设置20多万个虚拟光源，这显然非常不合理；并且我们从下图也很容易看到 ，场景有一些点是不可能对目标着色点产生影响的（如$q’$点和$p$），计算它们纯粹是在浪费性能</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/posts/25879/-STUDY-/college/%E9%97%AB%E4%BB%A4%E7%90%AA_%E5%9B%BE%E5%BD%A2%E5%AD%A6%E5%85%A5%E9%97%A8/202/%E5%9B%BE%E7%89%87/p7/RSM3.png" alt="RSM3"></th>
+<th><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/posts/25879/-STUDY-/college/%E9%97%AB%E4%BB%A4%E7%90%AA_%E5%9B%BE%E5%BD%A2%E5%AD%A6%E5%85%A5%E9%97%A8/202/%E5%9B%BE%E7%89%87/p7/RSM2.png" alt="RSM2"></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>于是为了解决这个问题，作者不再采用逐一计算虚拟光源的方法，而选择以着色点为中心，做一个有侧重的选取</p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/posts/25879/-STUDY-/college/%E9%97%AB%E4%BB%A4%E7%90%AA_%E5%9B%BE%E5%BD%A2%E5%AD%A6%E5%85%A5%E9%97%A8/202/%E5%9B%BE%E7%89%87/p7/RSM%E6%94%B9%E8%BF%9B.png" alt="RSM改进"></p>
+<p>他认为在shadow map中 距离着色点越近（或深度越接近）的虚拟光源带来的贡献越大，那么就只要多选取一些离着色点相近的次级光源，再引入一个与SM距离相关的权重来弥补稀疏采样带来的误差（越远越稀疏，权重越大），就能对最终的结果做出一个很好的近似（一般一个shading point只要400次采样就足够了，直接在原先基础上降了3个数量级，优化幅度还是非常大的）</p>
+<h5 id="RSM总结"><a href="#RSM总结" class="headerlink" title="RSM总结"></a>RSM总结</h5><p>综上所述，实现RSM一共需要储存四种信息：</p>
+<p>① 光源空间的深度值（shadow map）；② 世界坐标，用来比较距离；③  法线；④ 光源光强flux</p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/posts/25879/-STUDY-/college/%E9%97%AB%E4%BB%A4%E7%90%AA_%E5%9B%BE%E5%BD%A2%E5%AD%A6%E5%85%A5%E9%97%A8/202/%E5%9B%BE%E7%89%87/p7/RSM%E5%82%A8%E5%AD%98.png" alt="RSM储存"></p>
+<p>在实际应用中，RSM通常被用来做一些小型的单光源全局光照（如下面这张gif里的手电筒），一方面是因为它思路比较直接，实现起来比较方便，另一方面也是因为小型光源的shadow map的储存压力小，使用RSM可以以非常低的性能代价给画面带来质的提升</p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/posts/25879/-STUDY-/college/%E9%97%AB%E4%BB%A4%E7%90%AA_%E5%9B%BE%E5%BD%A2%E5%AD%A6%E5%85%A5%E9%97%A8/202/%E5%9B%BE%E7%89%87/p7/%E5%AF%B9%E6%AF%94gif.gif" alt="对比gif"></p>
+<p>但是同样也是因为这个原因，使得RSM在光源数增加的时候更容易遇到性能瓶颈（因为需要储存更多的shadow map）</p>
+<p>另外在其他方面，RSM也还存在着一些问题，比如次级光源的diffuse，忽略Visibility项，低采样率和质量的取舍等等，这些都会或多或少对结果造成一定影响，导致RSM在实际开发中的应用频率并不高</p>
+<p>即使如此，作为一个经典的算法，RSM仍对后人带来了相当深远的启发，包括后面要讲的LPV，也是建立在其基础上才被提出的，因此其中的思想仍然值得我们去学习和借鉴</p>
+<h3 id="三维空间方法"><a href="#三维空间方法" class="headerlink" title="三维空间方法"></a>三维空间方法</h3><h4 id="LPV"><a href="#LPV" class="headerlink" title="LPV"></a>LPV</h4><p>参考：<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/412287249">Light Propagation Volumes</a>（其中包括Visibility的解决方法）</p>
+<p>Light Propagation Volumes（光照传播体积），最早是由 CryEngine3 提出的一种基于RSM和球谐函数的实时全局光照技术，其核心思想是通过将场景划分为一系列三维网格（体素化）来模拟光线的传播，随后利用其Irradiance在传播过程中保持恒定这一特征，计算出每个shading point上的间接光照。这一创造性的方法不仅在速度和质量上有着非常好的表现，还同时解决了一部分RSM带来的问题，下面就来介绍它的具体做法</p>
+<ul>
+<li><p><strong>生成（Generation）</strong></p>
+<p>第一步很简单，利用光源的shadow map完成次级光源的定义即可。在这一步可以通过采样对次级光源的数量做出一些简化，从而给算法带来一定优化</p>
+</li>
+<li><p><strong>注入（Injection）</strong></p>
+<p>对整个场景进行体素化，并将虚拟光源转化为对应体素的属性。一块体素可能对应多个虚拟光源，叠加其内部所有虚拟光源即可得到当前体素的Radiance信息</p>
+<p>在存储过程中，由于Cube Map的开销过于庞大，我们可以使用球谐函数对其进行压缩，工业界一般认为两阶SH就能做到很好的拟合</p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/posts/25879/-STUDY-/college/%E9%97%AB%E4%BB%A4%E7%90%AA_%E5%9B%BE%E5%BD%A2%E5%AD%A6%E5%85%A5%E9%97%A8/202/%E5%9B%BE%E7%89%87/p8/LPV%E7%90%83%E8%B0%90.png" alt="LPV球谐"></p>
+</li>
+<li><p><strong>传播（Propagation）</strong></p>
+<p>对于每一个体素，依据其储存的Radiance分布，计算它周围六个体素的radiance，然后分别对它们使用SH进行简化。对角的体素可以被多步传播覆盖到，因此不做考虑</p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/posts/25879/-STUDY-/college/%E9%97%AB%E4%BB%A4%E7%90%AA_%E5%9B%BE%E5%BD%A2%E5%AD%A6%E5%85%A5%E9%97%A8/202/%E5%9B%BE%E7%89%87/p8/LPV%E4%BC%A0%E6%92%AD.png" alt="LPV传播"></p>
+<p>计算完成后，再算这六块体素各自 除了原体素相邻面以外的 另外五个格子，如此迭代，直至传播的radiance趋于稳定</p>
+</li>
+<li><p><strong>渲染（Rendering）</strong></p>
+<p>对场景中任意着色点，找到其所在的体素并叠加所在体素中所有方向的radiance后正常渲染即可</p>
+</li>
+</ul>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/posts/25879/-STUDY-/college/%E9%97%AB%E4%BB%A4%E7%90%AA_%E5%9B%BE%E5%BD%A2%E5%AD%A6%E5%85%A5%E9%97%A8/202/%E5%9B%BE%E7%89%87/p8/LPV%E6%95%88%E6%9E%9C.gif" alt="LPV效果"></p>
+<p>LPV提供的这种实现全局光照的方法<u>不需要任何的预计算</u>，因此可以支持各种变化的场景，做到真正的”实时“。不过，它有时候也会存在一些问题，如图，当渲染的几何对象小于体素大小，即体素划分精度不足时，会出现漏光的现象</p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/posts/25879/-STUDY-/college/%E9%97%AB%E4%BB%A4%E7%90%AA_%E5%9B%BE%E5%BD%A2%E5%AD%A6%E5%85%A5%E9%97%A8/202/%E5%9B%BE%E7%89%87/p8/%E6%BC%8F%E5%85%89%20(1" alt="漏光 (1)">.png)</p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/posts/25879/-STUDY-/college/%E9%97%AB%E4%BB%A4%E7%90%AA_%E5%9B%BE%E5%BD%A2%E5%AD%A6%E5%85%A5%E9%97%A8/202/%E5%9B%BE%E7%89%87/p8/%E6%BC%8F%E5%85%89%20(2" alt="漏光 (2)">.png)</p>
+<p>这是因为在LPV注入的时候，我们假设所有的Radiance都是由体素中心发出的，因此对于下左图中原本位于薄墙左侧的点p，就会被强行移动到右侧，产生漏光。为了解决这个问题，我们可以选择提高体素精度，但这还是会面临一个性能与质量之间的取舍</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:center"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/posts/25879/-STUDY-/college/%E9%97%AB%E4%BB%A4%E7%90%AA_%E5%9B%BE%E5%BD%A2%E5%AD%A6%E5%85%A5%E9%97%A8/202/%E5%9B%BE%E7%89%87/p8/LPV%E6%BC%8F%E5%85%89%E5%8E%9F%E5%9B%A0.png" alt="LPV漏光原因"></th>
+<th style="text-align:center"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/posts/25879/-STUDY-/college/%E9%97%AB%E4%BB%A4%E7%90%AA_%E5%9B%BE%E5%BD%A2%E5%AD%A6%E5%85%A5%E9%97%A8/202/%E5%9B%BE%E7%89%87/p8/LPV%E7%BA%A7%E8%81%94.png" alt="LPV级联"></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>另外，在场景较大、光源较多的情况下，LPV的计算压力也会随之上升，关于这一点，可以使用类似LOD的级联方法进行加速（上右图）</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>Q：体素划分一般多大比较合适？</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>A：至少比场景分辨率少一个数量级</strong></td>
+</tr>
+<tr>
+<td><strong>Q：一块体素会记录其他多个体素的传播贡献吧？</strong></td>
+</tr>
+<tr>
+<td><strong>A：当然，每个格子都会对它周围 6个/5个 格子产生贡献，最后累加</strong></td>
+</tr>
+<tr>
+<td><strong>Q：传播过程中会不会一直不稳定传播，达不到稳态而无法停止？</strong></td>
+</tr>
+<tr>
+<td><strong>A：肯定是会达到稳态的，就像向水面投一块石头产生的波纹，没有外界影响的话最后肯定是会收敛的</strong></td>
+</tr>
+<tr>
+<td><strong>Q：LPV会假设次级光源是diffuse的吗？</strong></td>
+</tr>
+<tr>
+<td><strong>A：会，只要是用SH压缩，渲染glossy表面都会造成强烈模糊，所以一般只要用了SH都会假设diffuse</strong></td>
+</tr>
+</tbody>
+</table>
+</div>
+<h4 id="VXGI"><a href="#VXGI" class="headerlink" title="VXGI"></a>VXGI</h4><p>与RSM和LPV类似，Voxel Global Illumination（体素全局光照）也是一个基于体积渲染的2-pass实时全局光照算法，但它与二者的区别在于：① VXGI 会在对场景离散体素化之后，再对数据做一次==稀疏八叉树划分==，所以从一开始，它的“次级光源”就是一系列体素；② 在渲染过程中，VXGI 会采用==Cone-Tracing==的方式计算间接光的贡献，在速度方面会比LPV慢很多</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:center">体素离散化</th>
+<th style="text-align:center">八叉树划分</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/posts/25879/-STUDY-/college/%E9%97%AB%E4%BB%A4%E7%90%AA_%E5%9B%BE%E5%BD%A2%E5%AD%A6%E5%85%A5%E9%97%A8/202/%E5%9B%BE%E7%89%87/p8/%E4%BD%93%E7%B4%A0%E7%A6%BB%E6%95%A3%E5%8C%96.png" alt="体素离散化"></td>
+<td style="text-align:center"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/posts/25879/-STUDY-/college/%E9%97%AB%E4%BB%A4%E7%90%AA_%E5%9B%BE%E5%BD%A2%E5%AD%A6%E5%85%A5%E9%97%A8/202/%E5%9B%BE%E7%89%87/p8/%E5%85%AB%E5%8F%89%E6%A0%91%E5%88%92%E5%88%86.png" alt="八叉树划分"></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>下面来具体介绍这个算法的执行步骤：</p>
+<ul>
+<li><p><strong>Light-Pass</strong></p>
+<p>VXGI 的第一个pass主要关注场景中哪些表面会被直接光照照亮，以及间接光照的反射方向。和LPV的注入过程不同的是，虽然它们都是以体素为储存单位，但 VXGI 记录的是直接光源的==入射方向区间==和体素对应的受光表面的==法线方向区间==，结合材质，VXGI 能够轻松的算出间接光照的分布（即直接光出射方向，反射波瓣），而在算完最低层级的体素之后，将当前层级的八个叶子结点相加，就可以计算更高一级体素的间接光照分布了（diffuse的情况比较特殊，下面会提）</p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/posts/25879/-STUDY-/college/%E9%97%AB%E4%BB%A4%E7%90%AA_%E5%9B%BE%E5%BD%A2%E5%AD%A6%E5%85%A5%E9%97%A8/202/%E5%9B%BE%E7%89%87/p8/VXGI%20Light-Pass.png" alt="VXGI Light-Pass"></p>
+<p>比起LPV用SH压缩记录虚拟光源信息，这种计算方法可以支持glossy，并且结果会更加准确</p>
+<p>相关拓展：<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/414691569">Voxel Global Illumination 体素全局光照</a></p>
+</li>
+<li><p><strong>Camera-Pass </strong></p>
+<p>在第二个Pass，VXGI 就要开始考虑真正的渲染问题了。通过第一个Pass我们可以知道Cone-Tracing的间接光照投射方向与锥角大小，那么对于glossy的表面就可以像Ray-Marching那样，只要基于一定Ray-Cone Footprint（理解为锥截面大小），到八叉树中相应层级进行查询，就可以得到范围内所有shading point的==irradiance==大小了（其实和mipmap一模一样，只不过将纹理查询转化为了子树遍历问题）</p>
+<p>| <img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/posts/25879/-STUDY-/college/%E9%97%AB%E4%BB%A4%E7%90%AA_%E5%9B%BE%E5%BD%A2%E5%AD%A6%E5%85%A5%E9%97%A8/202/%E5%9B%BE%E7%89%87/p8/VXGI%20Camera-Pass%20(1" alt="VXGI Camera-Pass (1)">.png) | <img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/posts/25879/-STUDY-/college/%E9%97%AB%E4%BB%A4%E7%90%AA_%E5%9B%BE%E5%BD%A2%E5%AD%A6%E5%85%A5%E9%97%A8/202/%E5%9B%BE%E7%89%87/p8/VXGI%20Camera-Pass%20(2" alt="VXGI Camera-Pass (2)">.png) |<br>| :—————————————————————————————: | :—————————————————————————————: |</p>
+<p>而对于diffuse表面就比较特殊了，VXGI 通常会将出射方向看做若干圆锥，而忽略锥与锥之间的间隙（影响并不会很大），暴力求解，但这样一来diffuse就会比glossy多一层循环，效率比起其他方法自然也会更差</p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/posts/25879/-STUDY-/college/%E9%97%AB%E4%BB%A4%E7%90%AA_%E5%9B%BE%E5%BD%A2%E5%AD%A6%E5%85%A5%E9%97%A8/202/%E5%9B%BE%E7%89%87/p8/VXGI%20Diffuse.png" alt="VXGI Diffuse"></p>
+</li>
+</ul>
+<p>总的来说，同样作为一种体积渲染方法，VXGI 的渲染结果质量非常好，有时候甚至可以做到与光线追踪相近的效果，但缺点是开销太大，且Light-Pass前的体素化会有一定预处理需求，所以它的实际应用也受到了很大的限制</p>
+<p>下面是VXGI 的效果gif</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:center">直接光照</th>
+<th style="text-align:center">体素化</th>
+<th style="text-align:center">最终结果</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/posts/25879/-STUDY-/college/%E9%97%AB%E4%BB%A4%E7%90%AA_%E5%9B%BE%E5%BD%A2%E5%AD%A6%E5%85%A5%E9%97%A8/202/%E5%9B%BE%E7%89%87/p8/VXGI%20gif1.gif" alt="VXGI gif1"></td>
+<td style="text-align:center"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/posts/25879/-STUDY-/college/%E9%97%AB%E4%BB%A4%E7%90%AA_%E5%9B%BE%E5%BD%A2%E5%AD%A6%E5%85%A5%E9%97%A8/202/%E5%9B%BE%E7%89%87/p8/VXGI%20gif2.gif" alt="VXGI gif2"></td>
+<td style="text-align:center"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/posts/25879/-STUDY-/college/%E9%97%AB%E4%BB%A4%E7%90%AA_%E5%9B%BE%E5%BD%A2%E5%AD%A6%E5%85%A5%E9%97%A8/202/%E5%9B%BE%E7%89%87/p8/VXGI%20gif3.gif" alt="VXGI gif3"></td>
+</tr>
+</tbody>
+</table>
+</div>
+<h3 id="屏幕空间方法"><a href="#屏幕空间方法" class="headerlink" title="屏幕空间方法"></a>屏幕空间方法</h3><p>屏幕空间实时渲染，是指利用在所有pass渲染完成之前各个帧缓冲中的信息，对已渲染结果加以修改的渲染方法。伴随着延迟渲染的兴起，更多的信息得以在屏幕空间取得，因此也延伸出许多不同的算法，这些算法一般都具有如下特点：</p>
+<ul>
+<li>能够很方便的支持各种滤波算法</li>
+<li>解除了场景复杂度对算法的限制</li>
+<li>会有不同程度的信息丢失（因为只能获得一些相机观察得到的信息，所以遮挡越多，越有可能发生信息丢失）</li>
+</ul>
+<p>本节将针对屏幕空间的全局光照，介绍SSAO，HBAO，SSDO、SSR共四种GI近似方法</p>
+<h4 id="AO（环境光遮蔽）"><a href="#AO（环境光遮蔽）" class="headerlink" title="AO（环境光遮蔽）"></a>AO（环境光遮蔽）</h4><p>在开始这个话题之前，首先要明白AO是什么，它和法线、RGB这类信息一样，也是场景的一种属性，描述的是物体与物体之间环境光互相遮挡的程度。在场景中加入AO信息，可以让物体相交处的阴影更加脚踏实地，从而让整个画面更具立体感</p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/posts/25879/-STUDY-/college/%E9%97%AB%E4%BB%A4%E7%90%AA_%E5%9B%BE%E5%BD%A2%E5%AD%A6%E5%85%A5%E9%97%A8/202/%E5%9B%BE%E7%89%87/p8/AO1.gif" alt="AO1"></p>
+<p>在计算全局光照过程中，由于我们无法在屏幕空间中直接获得间接光照，所以一般会假设间接光照强度为一个定值，随后通过AO来决定GI的亮度。比如在下图中，左边的shading point的AO比右图小，那么显然左边的间接光就会比右边亮</p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/posts/25879/-STUDY-/college/%E9%97%AB%E4%BB%A4%E7%90%AA_%E5%9B%BE%E5%BD%A2%E5%AD%A6%E5%85%A5%E9%97%A8/202/%E5%9B%BE%E7%89%87/p8/AO2.png" alt="AO2"></p>
+<h5 id="AO背后的数学原理"><a href="#AO背后的数学原理" class="headerlink" title="AO背后的数学原理"></a>AO背后的数学原理</h5><p>有了形象解释，再来看渲染方程</p>
+<script type="math/tex; mode=display">
+L_o(p,\omega_o)=\int_{\Omega+} L_i(p,\omega_i) f_r(p,\omega_i,\omega_o)
+V(p,\omega_i) cos\theta_i \, \mathrm{d}\omega_i\\
+\int_\Omega f(x)g(x)dx\approx\frac{\int_\Omega f(x)dx}{\int_\Omega dx}·\int_\Omega g(x) \, \mathrm{d}x\\
+L_o(p,\omega_o) \approx \frac
+{\int_{\Omega+}V(p,\omega_i)\cos\theta_i \, \mathrm{d}\omega_i}
+{\int_{\Omega+}\cos\theta_i \, \mathrm{d}\omega_i}·
+\int_{\Omega+}L_i(p,\omega_i)f_r(p,\omega_i,\omega_o)\cos\theta_i \, \mathrm{d}\omega_i</script><p>为了方便理解，我们需要再次用之前那个积分近似公式 把Visibility项拆出来，只不过这次我们并不是简简单单的对拆出去的Visibility取平均，而是引入了一个新的概念——投影立体角</p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/posts/25879/-STUDY-/college/%E9%97%AB%E4%BB%A4%E7%90%AA_%E5%9B%BE%E5%BD%A2%E5%AD%A6%E5%85%A5%E9%97%A8/202/%E5%9B%BE%E7%89%87/p8/%E6%8A%95%E5%BD%B1%E7%AB%8B%E4%BD%93%E8%A7%921.png" alt="投影立体角1"></p>
+<p>从图中可以看到，我们原先定义的立体角是在单位球上的一个面积微元，$\mathrm{d}\omega<em>i=\sin{\theta} \mathrm{d}\theta\mathrm{d}\phi$，如果我们在此基础上，将这个面积微元向x-y平面投影，就会得到一个单位圆上的面积微元，而这块面积我们就称其为投影立体角，$\mathrm{d}x</em>{\perp}=\cos{\theta<em>i}\,\mathrm{d}\omega_i$，不难看出，对单位半球面上的投影立体角求积分的结果，就相当于在求一个单位圆的面积，那么约等式的前半部分就可以理解为是在对 <strong>单位半球面  沿法线垂直向下投影  所得的单位圆内</strong>对可见性按照cos值进行加权平均；而对于式子的后半部分，由于我们假设了间接光照强度是一个定值，且材质BRDF全都统一为diffuse，所以整个后半段积分积出来就是个常数，$L</em>{indir}·\frac{\rho}{\pi}·\pi=L_{indir}·\rho$，这对于积分近似公式也是100%准确的</p>
+<p>由上，原式最后可以化简如下</p>
+<script type="math/tex; mode=display">
+L_o(p,\omega_o)=\int_{\Omega+} L_i(p,\omega_i) f_r(p,\omega_i,\omega_o)
+V(p,\omega_i) cos\theta_i \, \mathrm{d}\omega_i\\
+=\frac{\rho}{\pi}·L_i(p)· \int_{\Omega+}V(p,\omega_i)\cos\theta_i \, \mathrm{d}\omega_i\\</script><p>通过这个式子我们就可以很直观的了解到AO背后的实现原理，即==环境的间接光照 = 来自远处的未被遮挡的光线==</p>
+<p>值得注意的是，此处的“来自远处”并不代表着可见判断范围可以无限大，因为在某些特定的封闭场景下（如室内），如果可见性判定范围无穷大，将会得到一个AO处处为1的结果（即没有间接光照），而若判定范围不足，则会造成可见信息的丢失，因此我们为了得到准确的AO，一般都会选取一个合适的判定半径，在一个半球范围内完成操作，这是一个不可避免的trade off</p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/posts/25879/-STUDY-/college/%E9%97%AB%E4%BB%A4%E7%90%AA_%E5%9B%BE%E5%BD%A2%E5%AD%A6%E5%85%A5%E9%97%A8/202/%E5%9B%BE%E7%89%87/p8/AO3.png" alt="AO3"></p>
+<h4 id="SSAO"><a href="#SSAO" class="headerlink" title="SSAO"></a>SSAO</h4><p>经过上述分析，我们已经得到了场景AO的计算方法，那么现在的问题就只剩下如何（在屏幕空间中）求Visibility的积分了</p>
+<p>对此，SSAO（Screen-Space Ambient Occulusion）的解决方案如下：</p>
+<ul>
+<li>首先从相机出发，得到屏幕空间的深度信息，写入z-buffer</li>
+<li>对屏幕空间的任意一个像素（着色点），在以它为中心、R为半径的球体范围内随机寻找数个采样点，判断其可见性</li>
+<li>若该采样点的深度大于它在屏幕空间对应的深度，则认为该点不可见，记可见性为0（下图绿点）</li>
+<li>计算可见性为1的采样点的占比，作为当前像素的visibility值</li>
+</ul>
+<p>在早些时候，屏幕空间渲染还无法获得法线信息，因此那时候SSAO只能通过考虑visibility小于50%的情况来近似AO，并且同时无法使用上面推导的cos对可见性进行加权</p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/posts/25879/-STUDY-/college/%E9%97%AB%E4%BB%A4%E7%90%AA_%E5%9B%BE%E5%BD%A2%E5%AD%A6%E5%85%A5%E9%97%A8/202/%E5%9B%BE%E7%89%87/p8/%E6%97%A9%E6%9C%9FSSAO.png" alt="早期SSAO"></p>
+<p>而在延迟渲染普及之后，我们就可以更加准确的在法向半球内采样，进而也能够使用法线与采样点之间的夹角余弦对结果做加权平均</p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/posts/25879/-STUDY-/college/%E9%97%AB%E4%BB%A4%E7%90%AA_%E5%9B%BE%E5%BD%A2%E5%AD%A6%E5%85%A5%E9%97%A8/202/%E5%9B%BE%E7%89%87/p8/SSAO.png" alt="SSAO"></p>
+<p>但是即使这样，在特定的采样点我们仍会得到错误的结果，如上图中红色虚线右侧的红点，理论上它应该需要为其对应着色点计算贡献，但却由于深度测试 该点被错误判定为不可见，而导致结果产生多余的阴影</p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/posts/25879/-STUDY-/college/%E9%97%AB%E4%BB%A4%E7%90%AA_%E5%9B%BE%E5%BD%A2%E5%AD%A6%E5%85%A5%E9%97%A8/202/%E5%9B%BE%E7%89%87/p8/SSAO%E9%94%99%E8%AF%AF.png" alt="SSAO错误"></p>
+<p>对于这样的错误，首先它并不会对最终结果造成太大的影响，其次SSAO也没有什么可靠的解决方案，所以在实际计算过程中我们一般选择忽略不计……</p>
+<p>纵观SSAO的整个实现过程，我们可以发现它的思路非常像PCF做软阴影，采样的过程也极其相似，样本数量越大，结果越好，效率越慢，只不过由于在屏幕空间做后处理非常方便，通常情况我们不会直接使用非常高的采样率，而是会先采用一个较低的采样(64次以内)，再对它做一次降噪，降噪残留的模糊与噪声在与其他光照叠加计算后会得到一定掩盖，所以我们并不需要过多的担心质量的问题</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>Q：减少采样半径可以缓解false occlusion么？</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>A：可以，但减少采样半径会伴随着AO自身效果的变淡</strong></td>
+</tr>
+</tbody>
+</table>
+</div>
+<h4 id="HBAO"><a href="#HBAO" class="headerlink" title="HBAO"></a>HBAO</h4><p>这里老师讲的并不是非常明白，如果有需要可以参考：<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/367793439">【论文复现】Image-Space Horizon-Based Ambient Occlusion</a></p>
+<p>HBAO（Horizon-Based Ambient Occlusion）相比SSAO，不仅改善了冗余阴影的问题，还大大减少了采样率的需求，使得它成为了目前手机端最主流的环境光遮蔽算法</p>
+<p>其主要思想是，使用==多次光线步进== 找到<u>着色点切平面</u>与<u>遮挡物采样点</u>形成的最大角度，再通过这个角度来计算物体与物体间的遮挡程度，从而完成对环境光遮蔽的近似</p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/posts/25879/-STUDY-/college/%E9%97%AB%E4%BB%A4%E7%90%AA_%E5%9B%BE%E5%BD%A2%E5%AD%A6%E5%85%A5%E9%97%A8/202/%E5%9B%BE%E7%89%87/p8/HBAO.png" alt="HBAO"></p>
+<p>公式如下：</p>
+<script type="math/tex; mode=display">
+AO_p=1- \frac{1}{2\pi} \int_{\Omega} \cos(\alpha)W(\omega_i) \, \mathrm{d}\omega_i\\
+=1- \frac{1}{2\pi} \int_{\theta=-\pi}^{\pi}(\sin(H(\theta))-\sin(t(\theta)))W(\omega_i) \, \mathrm{d}\omega_i</script><p>公式中的sin可以由万能公式换成tan进行计算，其余推导见链接</p>
+<p>下图展示了SSAO与HBAO各自的效果，可以看到，二者还是存在一定质量上的差距的</p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/posts/25879/-STUDY-/college/%E9%97%AB%E4%BB%A4%E7%90%AA_%E5%9B%BE%E5%BD%A2%E5%AD%A6%E5%85%A5%E9%97%A8/202/%E5%9B%BE%E7%89%87/p8/SSAO%E3%80%81HBAO%E6%95%88%E6%9E%9C.gif" alt="SSAO、HBAO效果"></p>
+<h4 id="SSDO"><a href="#SSDO" class="headerlink" title="SSDO"></a>SSDO</h4><p>和HBAO一样，SSDO （Screen Space Directional Occlusion）也是一种对于SSAO的改进算法，它几乎照搬了RSM的实现思路，通过在屏幕空间计算一系列虚拟光源的贡献，以较小的代价取得了相比SSAO更为准确的结果</p>
+<h5 id="实现原理"><a href="#实现原理" class="headerlink" title="实现原理"></a>实现原理</h5><p>其计算过程大致可以分为两部分——直接光照与间接光照：</p>
+<ul>
+<li><p><strong>直接光照</strong></p>
+<p>在着色点的法向半球内随机寻找若干采样点，判断其可见性，以此确定是否要为该采样点计算直接光照</p>
+<p>下左图中，$\textcolor{red}{A、B、D}$均为遮挡，因此仅需要计算$\textcolor{red}{C}$点的直接光照：</p>
+<script type="math/tex; mode=display">
+L_o^{dir}(p,\omega_o)=\int_{\Omega+,\textcolor{blue}{V=1}} L_i^\textcolor{blue}{dir}(p,\omega_i)
+f_r(p,\omega_i,\omega_o) \cos\theta_i \, \mathrm{d}\omega_i</script></li>
+<li><p><strong>间接光照</strong></p>
+<p>在完成直接光照计算后，找到所有采样点在着色点法向半球内对应的表面微元，将它们设置为diffuse的次级光源，再依据次级光源的法线信息判断其有效性，对所有满足条件的次级光源计算间接光贡献</p>
+<p>下右图中，$\textcolor{grey}{C}$点在法向半球以外，$\textcolor{grey}{A}$点因法线朝向问题被判定为无效，所以最后只需计算$\textcolor{grey}{B}$点和$\textcolor{grey}{D}$点的间接光照即可</p>
+<script type="math/tex; mode=display">
+L_o^{indir}(p,\omega_o)=\int_{\Omega+,\textcolor{blue}{V=0}} L_i^\textcolor{blue}{indir}(p,\omega_i)
+f_r(p,\omega_i,\omega_o) cos\theta_i \, \mathrm{d}\omega_i\\
+=\sum_{i=1}^N L_{pixel}(1-V(\omega_i)) · \frac{\rho}{\pi} · 
+\frac{A_s \cos{\theta_{s_i}}\cos{\theta_{r_i}}}{d_i^2}</script></li>
+</ul>
+<p><em>（公式解释：$d<em>i$为着色点$P$到次级光源$P_i$的距离，$\cos{\theta</em>{s<em>i}}$为次级光源$P_i$的法线与$\overrightarrow{P_iP}$的夹角余弦，$\cos{\theta</em>{r<em>i}}$为$P$点法线与$\overrightarrow{PP_i}$的夹角余弦，$A_s$为为调节渗光程度的因子，表示虚拟点光源的面积，此处为$\frac{\pi r^2</em>{max}}{N}$）</em></p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/posts/25879/-STUDY-/college/%E9%97%AB%E4%BB%A4%E7%90%AA_%E5%9B%BE%E5%BD%A2%E5%AD%A6%E5%85%A5%E9%97%A8/202/%E5%9B%BE%E7%89%87/p9/SSDO.png" alt="SSDO"></p>
+<p>可以看到，SSDO与SSAO的最大区别在于它们==计算间接光照的来源不同==，SSAO认为间接光来源于远处的未被遮挡的光线，而SSDO则认为它们来自于周围较近的遮挡物体的反射，正因为这一点，SSDO可以直接通过屏幕空间的像素颜色对间接光照进行估计，而不再需要将间接光照设为一个定值代入计算，也正因如此，SSDO的结果会得到更多的细节表现（color bleeding）</p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/posts/25879/-STUDY-/college/%E9%97%AB%E4%BB%A4%E7%90%AA_%E5%9B%BE%E5%BD%A2%E5%AD%A6%E5%85%A5%E9%97%A8/202/%E5%9B%BE%E7%89%87/p9/SSAO%E3%80%81SSDO%E6%95%88%E6%9E%9C%E5%AF%B9%E6%AF%94gif.gif" alt="SSAO、SSDO效果对比gif"></p>
+<h5 id="SSDO存在的问题"><a href="#SSDO存在的问题" class="headerlink" title="SSDO存在的问题"></a>SSDO存在的问题</h5><p>由于SSDO和SSAO一样是屏幕空间的计算方法，所以它具有一切使用屏幕空间算法的弊端，如flase occlusion，信息丢失等</p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/posts/25879/-STUDY-/college/%E9%97%AB%E4%BB%A4%E7%90%AA_%E5%9B%BE%E5%BD%A2%E5%AD%A6%E5%85%A5%E9%97%A8/202/%E5%9B%BE%E7%89%87/p9/SSDO%E7%9A%84%E9%97%AE%E9%A2%98%20(1" alt="SSDO的问题 (1)">.png)</p>
+<p>就以图中的A点和B点为例，对于A点，理论上应该分别对直接光照和间接光照进行计算，但是SSDO将其判定为不可见，并错误的设置了虚拟光源，导致在A点处产生了flase occlusion；而对于B点，在计算其直接光照时，SSDO直接计算了PB连线上的光照信息而忽略了遮挡，导致B点发生漏光</p>
+<p>更重要的是，SSDO对间接光的近似方法是通过计算附近遮挡物的反射，所以它无法做到像SSAO那样考虑来自远处的间接光（其实按道理讲SSAO与SSDO应该互相配合着一起使用，但现实如何我们无从得知）另外，屏幕空间的信息丢失对SSDO的影响也会更加明显，因为几何特征的丢失会伴随着颜色信息的丢失，如下图中的两个长方体，随着它们摆放角度的逐渐垂直，地面上的颜色信息也会逐渐消失</p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/posts/25879/-STUDY-/college/%E9%97%AB%E4%BB%A4%E7%90%AA_%E5%9B%BE%E5%BD%A2%E5%AD%A6%E5%85%A5%E9%97%A8/202/%E5%9B%BE%E7%89%87/p9/SSDO%E7%9A%84%E9%97%AE%E9%A2%98%20(2" alt="SSDO的问题 (2)">.png)</p>
+<h4 id="SSR"><a href="#SSR" class="headerlink" title="SSR"></a>SSR</h4><p>我们前面介绍的这三种方法，SSAO、HBAO与SSDO，都是基于屏幕空间的环境光遮蔽提出的GI近似算法，但它们对于间接光照的理解都没有触及到问题的本质。回顾一下我们一开始对于全局光照的定义，它的核心是如何通过模拟光线的==传播路径==来计算比直接光照==多一次bounce==的光照结果，也就是说，如果想要在屏幕空间得到一个更加真实的结果，还是得靠光线追踪才能实现。托 延迟渲染 的福，现在的屏幕空间已经基本具备了所有模拟光线弹射的条件（法线，深度，balabala），那么剩下的问题就是如何与物体求交做shading，也就是我们接下来要介绍的最后一种方法——SSR（屏幕空间反射，screen-space relfections）</p>
+<h5 id="再提Ray-Marching"><a href="#再提Ray-Marching" class="headerlink" title="再提Ray-Marching"></a>再提Ray-Marching</h5><p>因为在屏幕空间中只能获得场景几何最浅深度上的一些信息，所以我们无法再继续像3d空间那样用Möller-Trumbore等算法做Ray-casting了，那么为了计算光线与物体求交就必须转变一下思路，使用Ray-Marching来做判断</p>
+<p>有关光线步进这个概念，我们已经在HBAO和之前的DFSS算法中多次提及，它无非就是让光线按一定步长向前迈进，同时判断是否与物体产生相交。由于这种计算方式适用于无法通过套公式进行求交的情况，所以在体渲染中得到了大量的应用，而对于SSR屏幕空间，只要再在此基础上多加一步空间转换，配合DDA画线算法，就可以完成这步操作了</p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/posts/25879/-STUDY-/college/%E9%97%AB%E4%BB%A4%E7%90%AA_%E5%9B%BE%E5%BD%A2%E5%AD%A6%E5%85%A5%E9%97%A8/202/%E5%9B%BE%E7%89%87/p9/Ray-Marching.png" alt="Ray-Marching"></p>
+<p>具体参考 <a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/386510829">【论文复现】Efficient GPU Screen-Space Ray Tracing</a>，以及<a target="_blank" rel="noopener" href="https://www.zhihu.com/question/29863225">Ray-tracing和Ray-marching的区别</a></p>
+<h5 id="Hierarchical-tracing加速结构"><a href="#Hierarchical-tracing加速结构" class="headerlink" title="Hierarchical tracing加速结构"></a>Hierarchical tracing加速结构</h5><p>现在我们解决了屏幕空间的求交问题，但显然这种方法对实时渲染来说太慢了，虽然这种逐像素逐步长Ray-Marching非常稳妥，但中间的过程存在大量的性能浪费，这并不是我们所想看到的。那么有没有一种方法，既可以替代这种遍历式步进，又可以做到像三维的BVH / KD-Tree那样的加速效果呢？</p>
+<p>于是有人就参照SDF，提出了一种基于动态步长的层级加速结构，这个结构有点类似Mipmap，会首先对深度缓存中的屏幕深度生成一个层级纹理，这个过程并不是像Mipmap那种做双线性插值，而是取四个像素的最小深度直接写入缓冲，如图</p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/posts/25879/-STUDY-/college/%E9%97%AB%E4%BB%A4%E7%90%AA_%E5%9B%BE%E5%BD%A2%E5%AD%A6%E5%85%A5%E9%97%A8/202/%E5%9B%BE%E7%89%87/p9/%E5%B1%82%E7%BA%A7%E6%B7%B1%E5%BA%A6%E7%BC%93%E5%86%B2.png" alt="层级深度缓冲"></p>
+<p>这时候我们再看下图的二维几何近似，可以发现这种层级结构刚好相当于对原场景生成了多个层级的包围盒，并且在级与级之间很自然的形成了一棵树形结构</p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/posts/25879/-STUDY-/college/%E9%97%AB%E4%BB%A4%E7%90%AA_%E5%9B%BE%E5%BD%A2%E5%AD%A6%E5%85%A5%E9%97%A8/202/%E5%9B%BE%E7%89%87/p9/%E5%8A%A0%E9%80%9F%E7%BB%93%E6%9E%841.png" alt="加速结构1"></p>
+<p>直接上伪代码：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">void</span> <span class="title function_">intersect</span><span class="params">(<span class="type">int</span> level)</span></span><br><span class="line">&#123;</span><br><span class="line">	<span class="keyword">while</span>(level&gt;<span class="number">-1</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">for</span>(i=<span class="number">0</span>; i&lt;<span class="number">4</span>; i++)</span><br><span class="line">    	&#123;</span><br><span class="line">			<span class="keyword">if</span>( hit level-&gt;node[i++] )</span><br><span class="line">				level--;</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">		&#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> level = <span class="number">0</span>;</span><br><span class="line"><span class="keyword">while</span>(level&gt;<span class="number">-1</span> &amp;&amp; in screen)	<span class="comment">//求交成功/失败-&gt;退出循环</span></span><br><span class="line">&#123;</span><br><span class="line">    step through current cell;	<span class="comment">//按当前level步长向前迈进</span></span><br><span class="line">    <span class="keyword">if</span>(above Z plane)</span><br><span class="line">        level++;				<span class="comment">//若没有交点，则加大步长</span></span><br><span class="line">    <span class="keyword">if</span>(below Z plane) </span><br><span class="line">    &#123;</span><br><span class="line">        level--;				<span class="comment">//若有交点则遍历当前层级</span></span><br><span class="line">		intersect(level);		<span class="comment">//定位到相交的子节点，随后缩短步长，在子节点层级继续求交</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/posts/25879/-STUDY-/college/%E9%97%AB%E4%BB%A4%E7%90%AA_%E5%9B%BE%E5%BD%A2%E5%AD%A6%E5%85%A5%E9%97%A8/202/%E5%9B%BE%E7%89%87/p9/%E5%8A%A0%E9%80%9F%E7%BB%93%E6%9E%84.gif" alt="加速结构"></p>
+<p>按paper的写法确实应该多一步增大步长，但这样会破坏树形结构，不太方便理解</p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/posts/25879/-STUDY-/college/%E9%97%AB%E4%BB%A4%E7%90%AA_%E5%9B%BE%E5%BD%A2%E5%AD%A6%E5%85%A5%E9%97%A8/202/%E5%9B%BE%E7%89%87/p9/%E5%8A%A0%E9%80%9F%E7%BB%93%E6%9E%842.png" alt="加速结构2"></p>
+<h5 id="着色-amp-采样方法"><a href="#着色-amp-采样方法" class="headerlink" title="着色&amp;采样方法"></a>着色&amp;采样方法</h5><p>求到光线与物体的交点，剩下的工作就简单了。SSR计算着色的方法几乎与路径追踪一模一样，如果是specular材质则cast一次，是glossy材质就用蒙特卡洛重要性采样多次计算（这里需要假设次级反射物为diffuse），正因为这一点，SSR才具备了实现许多路径追踪自带高质量效果的能力，如下图中的接触锐化和各向同性拉伸：</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:center">Glossy &amp; Blurry</th>
+<th style="text-align:center">Contact hardening（接触锐化）</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/posts/25879/-STUDY-/college/%E9%97%AB%E4%BB%A4%E7%90%AA_%E5%9B%BE%E5%BD%A2%E5%AD%A6%E5%85%A5%E9%97%A8/202/%E5%9B%BE%E7%89%87/p9/SSR%E6%95%88%E6%9E%9C1.png" alt="SSR效果1"></td>
+<td style="text-align:center"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/posts/25879/-STUDY-/college/%E9%97%AB%E4%BB%A4%E7%90%AA_%E5%9B%BE%E5%BD%A2%E5%AD%A6%E5%85%A5%E9%97%A8/202/%E5%9B%BE%E7%89%87/p9/SSR%E6%95%88%E6%9E%9C2.png" alt="SSR效果2"></td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>Specular elongation（各向同性拉伸）</strong></td>
+<td style="text-align:center"><strong>Spacial Varying</strong></td>
+</tr>
+<tr>
+<td style="text-align:center"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/posts/25879/-STUDY-/college/%E9%97%AB%E4%BB%A4%E7%90%AA_%E5%9B%BE%E5%BD%A2%E5%AD%A6%E5%85%A5%E9%97%A8/202/%E5%9B%BE%E7%89%87/p9/SSR%E6%95%88%E6%9E%9C3.png" alt="SSR效果3"></td>
+<td style="text-align:center"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/posts/25879/-STUDY-/college/%E9%97%AB%E4%BB%A4%E7%90%AA_%E5%9B%BE%E5%BD%A2%E5%AD%A6%E5%85%A5%E9%97%A8/202/%E5%9B%BE%E7%89%87/p9/SSR%E6%95%88%E6%9E%9C4.png" alt="SSR效果4"></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>唯一的不同在于，SSR不用考虑光线的平方衰减，并且可以保证交点的可见性，这是因为SSR的采样对象是brdf本身，而只有在对光源采样的时候才要考虑衰减和遮挡…</p>
+<p>至于对采样算法的优化，一方面我们可以采用之前的pre-filtering，通过提前对glossy反射波瓣的覆盖区域做滤波处理，来加快实际渲染速度。但这里有一点需要注意，屏幕空间的滤波操作还需要考虑深度值大小（原因如下图所示），在此我们不做深入讨论</p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/posts/25879/-STUDY-/college/%E9%97%AB%E4%BB%A4%E7%90%AA_%E5%9B%BE%E5%BD%A2%E5%AD%A6%E5%85%A5%E9%97%A8/202/%E5%9B%BE%E7%89%87/p9/%E7%A9%BA%E9%97%B4%E5%A4%8D%E7%94%A81.png" alt="空间复用1"></p>
+<p>另外，因为反射平面上邻近的两个着色点很有可能会采样到同一个交点，所以我们还可以对交点进行复用，如图：</p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/posts/25879/-STUDY-/college/%E9%97%AB%E4%BB%A4%E7%90%AA_%E5%9B%BE%E5%BD%A2%E5%AD%A6%E5%85%A5%E9%97%A8/202/%E5%9B%BE%E7%89%87/p9/%E7%A9%BA%E9%97%B4%E5%A4%8D%E7%94%A82.png" alt="空间复用2"></p>
+<p>（p.s. 还有一些时间上的加速算法，留到后续的实时光线追踪中详细介绍）</p>
+<h5 id="SSR总结"><a href="#SSR总结" class="headerlink" title="SSR总结"></a>SSR总结</h5><p>综合来看，SSR是一个极其优秀的屏幕空间算法，既能在实时的条件下根据不同材质得到不同的高质量结果，又能忽略前面AO算法中的各种遮挡问题，集各种优良性质于一身，属实nb</p>
+<p>不过金无足赤，SSR也有自己不完美的地方，首先还是信息丢失的问题，这是屏幕空间算法的通病，无需多言</p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/posts/25879/-STUDY-/college/%E9%97%AB%E4%BB%A4%E7%90%AA_%E5%9B%BE%E5%BD%A2%E5%AD%A6%E5%85%A5%E9%97%A8/202/%E5%9B%BE%E7%89%87/p9/SSR%E7%BC%BA%E7%82%B9%20(1" alt="SSR缺点 (1)">.png)</p>
+<p>另外还有就是它的硬边问题了，如果不做软化处理，结果会显得非常不自然，如图：</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/posts/25879/-STUDY-/college/%E9%97%AB%E4%BB%A4%E7%90%AA_%E5%9B%BE%E5%BD%A2%E5%AD%A6%E5%85%A5%E9%97%A8/202/%E5%9B%BE%E7%89%87/p9/SSR%E7%BC%BA%E7%82%B9%20(2" alt="SSR缺点 (2)">.png)</th>
+<th><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/posts/25879/-STUDY-/college/%E9%97%AB%E4%BB%A4%E7%90%AA_%E5%9B%BE%E5%BD%A2%E5%AD%A6%E5%85%A5%E9%97%A8/202/%E5%9B%BE%E7%89%87/p9/SSR%E7%BC%BA%E7%82%B9%20(3" alt="SSR缺点 (3)">.png)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+</div>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="https://YuiLu.github.io">Yui Lu</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="https://yuilu.github.io/posts/25879.html">https://yuilu.github.io/posts/25879.html</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://YuiLu.github.io" target="_blank">Yui Lu</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/GAMES202-Notes/">GAMES202, Notes</a></div><div class="post_share"><div class="social-share" data-image="https://cdn.jsdelivr.net/gh/YuiLu/Image_host@main/GAMES202/2.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/butterfly-extsrc/1.1.3/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdnjs.cloudflare.com/ajax/libs/butterfly-extsrc/1.1.3/sharejs/dist/js/social-share.min.js" defer></script></div></div><div class="post-reward"><div class="reward-button"><i class="fas fa-qrcode"></i>赞助</div><div class="reward-main"><ul class="reward-all"><li class="reward-item"><a href="/img/wechatpay.png" target="_blank"><img class="post-qr-code-img" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/wechatpay.png" alt="wechat"/></a><div class="post-qr-code-desc">wechat</div></li><li class="reward-item"><a href="/img/alipay.png" target="_blank"><img class="post-qr-code-img" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/alipay.png" alt="alipay"/></a><div class="post-qr-code-desc">alipay</div></li></ul></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/posts/24703.html" title="GAMES101个人笔记（3）-实时环境光照"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://cdn.jsdelivr.net/gh/YuiLu/Image_host@main/GAMES202/2.png" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">GAMES101个人笔记（3）-实时环境光照</div></div></a></div><div class="next-post pull-right"><a href="/posts/27132.html" title="GAMES202个人笔记（5）-基于物理的实时渲染"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://cdn.jsdelivr.net/gh/YuiLu/Image_host@main/GAMES202/3.png" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">GAMES202个人笔记（5）-基于物理的实时渲染</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/posts/12444.html" title="GAMES202个人笔记（1）-基础引入"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://cdn.jsdelivr.net/gh/YuiLu/Image_host@main/GAMES202/1.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-01-16</div><div class="title">GAMES202个人笔记（1）-基础引入</div></div></a></div><div><a href="/posts/24703.html" title="GAMES101个人笔记（3）-实时环境光照"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://cdn.jsdelivr.net/gh/YuiLu/Image_host@main/GAMES202/2.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-01-14</div><div class="title">GAMES101个人笔记（3）-实时环境光照</div></div></a></div><div><a href="/posts/5734.html" title="GAMES202个人笔记（2）-实时阴影"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://cdn.jsdelivr.net/gh/YuiLu/Image_host@main/GAMES202/1.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-01-15</div><div class="title">GAMES202个人笔记（2）-实时阴影</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/bocchi.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Yui Lu</div><div class="author-info__description">Ciallo～(∠・ω< )⌒☆</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">15</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">2</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">0</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://www.zhihu.com/people/zhang-jia-hui-55-74"><i class="fab fa-zhihu"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/YuiLu" target="_blank" title="Github"><i class="fab fa-github" style="color: #24292e;"></i></a><a class="social-icon" href="tencent://message/?Menu=yes&amp;uin=2903077287" target="_blank" title="'#24292e'"><i class="fab fa-qq"></i></a><a class="social-icon" href="mailto:b2903077287@gmail.com" target="_blank" title="Email"><i class="fas fa-envelope" style="color: #24292e;"></i></a><a class="social-icon" href="https://space.bilibili.com/23208863?spm_id_from=333.1007.0.0" target="_blank" title="bilibili"><i class="fab fa-bilibili" style="color: #24292e;"></i></a></div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#Recap"><span class="toc-text">Recap</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9B%BE%E5%83%8F%E7%A9%BA%E9%97%B4%E6%96%B9%E6%B3%95"><span class="toc-text">图像空间方法</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8F%8D%E5%B0%84%E9%98%B4%E5%BD%B1%E8%B4%B4%E5%9B%BE%EF%BC%88RSM%EF%BC%89"><span class="toc-text">反射阴影贴图（RSM）</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%9F%BA%E6%9C%AC%E6%80%9D%E8%B7%AF"><span class="toc-text">基本思路</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E7%AE%97%E6%B3%95%E4%BC%98%E5%8C%96"><span class="toc-text">算法优化</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#RSM%E6%80%BB%E7%BB%93"><span class="toc-text">RSM总结</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%89%E7%BB%B4%E7%A9%BA%E9%97%B4%E6%96%B9%E6%B3%95"><span class="toc-text">三维空间方法</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#LPV"><span class="toc-text">LPV</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#VXGI"><span class="toc-text">VXGI</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B1%8F%E5%B9%95%E7%A9%BA%E9%97%B4%E6%96%B9%E6%B3%95"><span class="toc-text">屏幕空间方法</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#AO%EF%BC%88%E7%8E%AF%E5%A2%83%E5%85%89%E9%81%AE%E8%94%BD%EF%BC%89"><span class="toc-text">AO（环境光遮蔽）</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#AO%E8%83%8C%E5%90%8E%E7%9A%84%E6%95%B0%E5%AD%A6%E5%8E%9F%E7%90%86"><span class="toc-text">AO背后的数学原理</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#SSAO"><span class="toc-text">SSAO</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#HBAO"><span class="toc-text">HBAO</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#SSDO"><span class="toc-text">SSDO</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%AE%9E%E7%8E%B0%E5%8E%9F%E7%90%86"><span class="toc-text">实现原理</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#SSDO%E5%AD%98%E5%9C%A8%E7%9A%84%E9%97%AE%E9%A2%98"><span class="toc-text">SSDO存在的问题</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#SSR"><span class="toc-text">SSR</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%86%8D%E6%8F%90Ray-Marching"><span class="toc-text">再提Ray-Marching</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#Hierarchical-tracing%E5%8A%A0%E9%80%9F%E7%BB%93%E6%9E%84"><span class="toc-text">Hierarchical tracing加速结构</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E7%9D%80%E8%89%B2-amp-%E9%87%87%E6%A0%B7%E6%96%B9%E6%B3%95"><span class="toc-text">着色&amp;采样方法</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#SSR%E6%80%BB%E7%BB%93"><span class="toc-text">SSR总结</span></a></li></ol></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/posts/12444.html" title="GAMES202个人笔记（1）-基础引入"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://cdn.jsdelivr.net/gh/YuiLu/Image_host@main/GAMES202/1.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="GAMES202个人笔记（1）-基础引入"/></a><div class="content"><a class="title" href="/posts/12444.html" title="GAMES202个人笔记（1）-基础引入">GAMES202个人笔记（1）-基础引入</a><time datetime="2024-01-16T10:00:00.000Z" title="发表于 2024-01-16 18:00:00">2024-01-16</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/5734.html" title="GAMES202个人笔记（2）-实时阴影"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://cdn.jsdelivr.net/gh/YuiLu/Image_host@main/GAMES202/1.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="GAMES202个人笔记（2）-实时阴影"/></a><div class="content"><a class="title" href="/posts/5734.html" title="GAMES202个人笔记（2）-实时阴影">GAMES202个人笔记（2）-实时阴影</a><time datetime="2024-01-15T10:00:00.000Z" title="发表于 2024-01-15 18:00:00">2024-01-15</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/24703.html" title="GAMES101个人笔记（3）-实时环境光照"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://cdn.jsdelivr.net/gh/YuiLu/Image_host@main/GAMES202/2.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="GAMES101个人笔记（3）-实时环境光照"/></a><div class="content"><a class="title" href="/posts/24703.html" title="GAMES101个人笔记（3）-实时环境光照">GAMES101个人笔记（3）-实时环境光照</a><time datetime="2024-01-14T10:00:00.000Z" title="发表于 2024-01-14 18:00:00">2024-01-14</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/25879.html" title="GAMES202个人笔记（4）-实时全局光照"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://cdn.jsdelivr.net/gh/YuiLu/Image_host@main/GAMES202/2.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="GAMES202个人笔记（4）-实时全局光照"/></a><div class="content"><a class="title" href="/posts/25879.html" title="GAMES202个人笔记（4）-实时全局光照">GAMES202个人笔记（4）-实时全局光照</a><time datetime="2024-01-13T10:00:00.000Z" title="发表于 2024-01-13 18:00:00">2024-01-13</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/27132.html" title="GAMES202个人笔记（5）-基于物理的实时渲染"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://cdn.jsdelivr.net/gh/YuiLu/Image_host@main/GAMES202/3.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="GAMES202个人笔记（5）-基于物理的实时渲染"/></a><div class="content"><a class="title" href="/posts/27132.html" title="GAMES202个人笔记（5）-基于物理的实时渲染">GAMES202个人笔记（5）-基于物理的实时渲染</a><time datetime="2024-01-12T10:00:00.000Z" title="发表于 2024-01-12 18:00:00">2024-01-12</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2023 - 2024 By Yui Lu</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="translateLink" type="button" title="简繁转换">繁</button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-butterfly/4.12.0/js/utils.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-butterfly/4.12.0/js/main.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-butterfly/4.12.0/js/tw_cn.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fancyapps-ui/5.0.32/fancybox/fancybox.umd.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-lazyload/17.8.5/lazyload.iife.min.js"></script><div class="js-pjax"><script>if (!window.MathJax) {
+  window.MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      tags: 'ams'
+    },
+    chtml: {
+      scale: 1.1
+    },
+    options: {
+      renderActions: {
+        findScript: [10, doc => {
+          for (const node of document.querySelectorAll('script[type^="math/tex"]')) {
+            const display = !!node.type.match(/; *mode=display/)
+            const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display)
+            const text = document.createTextNode('')
+            node.parentNode.replaceChild(text, node)
+            math.start = {node: text, delim: '', n: 0}
+            math.end = {node: text, delim: '', n: 0}
+            doc.math.push(math)
+          }
+        }, '']
+      }
+    }
+  }
+  
+  const script = document.createElement('script')
+  script.src = 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.min.js'
+  script.id = 'MathJax-script'
+  script.async = true
+  document.head.appendChild(script)
+} else {
+  MathJax.startup.document.state(0)
+  MathJax.texReset()
+  MathJax.typesetPromise()
+}</script></div><script id="canvas_nest" defer="defer" color="128,128,128" opacity="0.7" zIndex="-1" count="99" mobile="false" src="https://cdnjs.cloudflare.com/ajax/libs/butterfly-extsrc/1.1.3/canvas-nest.min.js"></script><script id="click-heart" src="https://cdnjs.cloudflare.com/ajax/libs/butterfly-extsrc/1.1.3/click-heart.min.js" async="async" mobile="false"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-butterfly/4.12.0/js/search/local-search.min.js"></script></div></div></body></html>
