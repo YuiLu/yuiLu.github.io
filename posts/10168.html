@@ -162,7 +162,7 @@
 <p>除了无偏性，还有两种判断估计的准确性的评判标准——有效性和一致性（相合性）</p>
 <p>暂且不提有效性，如果采样的样本数量趋近于无穷时，样本统计量的期望收敛于总体统计量的期望，则称这种估计是一致的</p>
 <p>有了以上统计学概念，再继续分类来看现代图形学的几种高级光线传播方式</p>
-<h4 id="无偏光线传播方法"><a href="#无偏光线传播方法" class="headerlink" title="无偏光线传播方法"></a>无偏光线传播方法</h4><h5 id="双向路径追踪（BDPT）"><a href="#双向路径追踪（BDPT）" class="headerlink" title="双向路径追踪（BDPT）"></a>双向路径追踪（BDPT）</h5><p>之前所说的路径追踪利用了光路可逆性，通过形成相机到光源的==单向路径==来计算光照结果</p>
+<h4 id="无偏光线传播方法"><a href="#无偏光线传播方法" class="headerlink" title="无偏光线传播方法"></a>无偏光线传播方法</h4><h5 id="双向路径追踪（BDPT）"><a href="#双向路径追踪（BDPT）" class="headerlink" title="双向路径追踪（BDPT）"></a>双向路径追踪（BDPT）</h5><p>之前所说的路径追踪利用了光路可逆性，通过形成相机到光源的&#x3D;&#x3D;单向路径&#x3D;&#x3D;来计算光照结果</p>
 <p>而双向路径追踪，顾名思义，就是从光源和相机分别打出一些半路径，最后连接两条半路径的端点，形成整条路径</p>
 <p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/posts/10168/-STUDY-/college/%E9%97%AB%E4%BB%A4%E7%90%AA_%E5%9B%BE%E5%BD%A2%E5%AD%A6%E5%85%A5%E9%97%A8/101/%E5%9B%BE%E7%89%87/p18-%E6%B8%B2%E6%9F%93%E5%89%8D%E6%B2%BF%E8%AF%9D%E9%A2%98/BDPT%E5%8E%9F%E7%90%86.png" alt="BDPT原理"></p>
 <p>请注意，BDPT的原理看起来很简单，但实际实现起来非常困难（如果能实现，那么独立写渲染器也应该不在话下了）</p>
@@ -186,7 +186,7 @@
 <li>先从光源出发打出光子，让其在空间内传播散射，直到打到漫反射表面为止</li>
 <li>然后再从摄像机打出路径，进行着色计算，着色点的亮度取决于光子的密度</li>
 </ul>
-<p>具体做法是对每个着色点，取其附近的N个光子，做密度估计（树状结构实现算法），$\rho=\frac{N}{A}$</p>
+<p>具体做法是对每个着色点，取其附近的N个光子，做密度估计（树状结构实现算法），$\rho&#x3D;\frac{N}{A}$</p>
 <p>A可以由球形包围盒与表面求交得到（方法不唯一）</p>
 <p>但这又有一个问题，我们直接来看效果</p>
 <p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/posts/10168/-STUDY-/college/%E9%97%AB%E4%BB%A4%E7%90%AA_%E5%9B%BE%E5%BD%A2%E5%AD%A6%E5%85%A5%E9%97%A8/101/%E5%9B%BE%E7%89%87/p18-%E6%B8%B2%E6%9F%93%E5%89%8D%E6%B2%BF%E8%AF%9D%E9%A2%98/PM%E6%95%88%E6%9E%9C.png" alt="PM效果"></p>
@@ -194,12 +194,12 @@
 <p>这是因为光子映射本身就是一个有偏的方法，算密度应该用$\frac{N}{dA}$，而我们的密度估计时用的是$\triangle A$，$\frac{N}{dA}\neq\triangle A$，只有$\triangle A$足够小才能做到正确估计，否则多少会有点糊</p>
 <p>为了让$dA$足够小，可以在一开始发射光子的时候就多发射点，提高采样数，那么同样多的N对应的$dA$就会相对小，也就是说，这种方法虽然有偏，但他是一致的</p>
 <p>那么为什么不能取固定的$\triangle A$来数里面的N呢？因为这样一来$\triangle A$就锁死了，永远不会靠近$dA$，采样多，$\triangle A$里的N确实是会变多，但那也只是结果变亮而已，换句话说这样的结果是有偏且不一致的，因此我们通常采用前一种方法</p>
-<h5 id="顶点连接-合并（VCM）"><a href="#顶点连接-合并（VCM）" class="headerlink" title="顶点连接/合并（VCM）"></a>顶点连接/合并（VCM）</h5><p>VCM（Vertex connection and merging）就是把双向路径追踪和光子映射结合起来的一种方法</p>
+<h5 id="顶点连接-合并（VCM）"><a href="#顶点连接-合并（VCM）" class="headerlink" title="顶点连接&#x2F;合并（VCM）"></a>顶点连接&#x2F;合并（VCM）</h5><p>VCM（Vertex connection and merging）就是把双向路径追踪和光子映射结合起来的一种方法</p>
 <p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/posts/10168/-STUDY-/college/%E9%97%AB%E4%BB%A4%E7%90%AA_%E5%9B%BE%E5%BD%A2%E5%AD%A6%E5%85%A5%E9%97%A8/101/%E5%9B%BE%E7%89%87/p18-%E6%B8%B2%E6%9F%93%E5%89%8D%E6%B2%BF%E8%AF%9D%E9%A2%98/VCM.png" alt="VCM"></p>
 <p>双向路径追踪会发生两条子路径端点非常接近的情况（在同一个局部面积内），这时候BDPT就认为这种路径无效，就是一种浪费</p>
 <p>对于这种情况，VCM就认为其中一条路径打过来的不是光线而是光子，用光子映射的方法把两条路径的贡献结合起来，避免了这种浪费</p>
 <p>现实在电影行业以及许多实践中，也确实使用了VCM这种方法</p>
-<h4 id="实时辐射度（Instant-Radiosity）"><a href="#实时辐射度（Instant-Radiosity）" class="headerlink" title="实时辐射度（Instant Radiosity）"></a>实时辐射度（Instant Radiosity）</h4><p>有时候也被称为“很多光源的算法”(VPL / many light methods)，核心思想是将每个被照亮的表面都作为虚拟的点光源来看待，再具体点，这种算法是把光源打出的光线所打到的地方作为二级光源，计算着色时遍历这些二级光源叠加计算</p>
+<h4 id="实时辐射度（Instant-Radiosity）"><a href="#实时辐射度（Instant-Radiosity）" class="headerlink" title="实时辐射度（Instant Radiosity）"></a>实时辐射度（Instant Radiosity）</h4><p>有时候也被称为“很多光源的算法”(VPL &#x2F; many light methods)，核心思想是将每个被照亮的表面都作为虚拟的点光源来看待，再具体点，这种算法是把光源打出的光线所打到的地方作为二级光源，计算着色时遍历这些二级光源叠加计算</p>
 <p>优点：速度快，在漫反射场景中效果很好</p>
 <p>缺点：当虚拟光源离着色点特别近的时候，会出现反常亮点，类似漏光的现象，这和之前路径追踪对光源采样的距离平方项有关；另外，这种方法无法处理光泽材质</p>
 <h3 id="高级外观建模方法"><a href="#高级外观建模方法" class="headerlink" title="高级外观建模方法"></a>高级外观建模方法</h3><h4 id="非表面模型"><a href="#非表面模型" class="headerlink" title="非表面模型"></a>非表面模型</h4><h5 id="散射介质"><a href="#散射介质" class="headerlink" title="散射介质"></a>散射介质</h5><p>光线进入散射介质会发生两件事——被吸收或者散射</p>
@@ -210,8 +210,7 @@
 <p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/posts/10168/-STUDY-/college/%E9%97%AB%E4%BB%A4%E7%90%AA_%E5%9B%BE%E5%BD%A2%E5%AD%A6%E5%85%A5%E9%97%A8/101/%E5%9B%BE%E7%89%87/p18-%E6%B8%B2%E6%9F%93%E5%89%8D%E6%B2%BF%E8%AF%9D%E9%A2%98/%E6%95%A3%E5%B0%84%E4%BB%8B%E8%B4%A8%E6%B8%B2%E6%9F%93.png" alt="散射介质渲染"></p>
 <p>电影《超能陆战队》中旧京山（San Fransokyo，三藩京，虚构城市）场景的雾效就应用了散射介质</p>
 <p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/posts/10168/-STUDY-/college/%E9%97%AB%E4%BB%A4%E7%90%AA_%E5%9B%BE%E5%BD%A2%E5%AD%A6%E5%85%A5%E9%97%A8/101/%E5%9B%BE%E7%89%87/p18-%E6%B8%B2%E6%9F%93%E5%89%8D%E6%B2%BF%E8%AF%9D%E9%A2%98/Big%20Hero.png" alt="Big Hero"></p>
-<h5 id="头发-毛发"><a href="#头发-毛发" class="headerlink" title="头发/毛发"></a>头发/毛发</h5><p>先来看一个简单的模型</p>
-<div class="table-container">
+<h5 id="头发-毛发"><a href="#头发-毛发" class="headerlink" title="头发&#x2F;毛发"></a>头发&#x2F;毛发</h5><p>先来看一个简单的模型</p>
 <table>
 <thead>
 <tr>
@@ -219,18 +218,11 @@
 <th><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/posts/10168/-STUDY-/college/%E9%97%AB%E4%BB%A4%E7%90%AA_%E5%9B%BE%E5%BD%A2%E5%AD%A6%E5%85%A5%E9%97%A8/101/%E5%9B%BE%E7%89%87/p18-%E6%B8%B2%E6%9F%93%E5%89%8D%E6%B2%BF%E8%AF%9D%E9%A2%98/Kajiya%20Kay%E6%95%88%E6%9E%9C.png" alt="Kajiya Kay效果"></th>
 </tr>
 </thead>
-<tbody>
-<tr>
-<td></td>
-</tr>
-</tbody>
 </table>
-</div>
 <p>首先，Kajiya-Kay模型将头发丝看做一个可弯曲的圆柱，这也是之后所有其他方法的基础</p>
 <p>然后该模型认为，光线打到头发上会呈圆锥状散射（类似specular），同时又会被散射到四面八方（类似diffuse）</p>
 <p>可以看到，这种diffuse+specular 的模拟效果并不尽如人意，但值得肯定的是，Kajiya-Kay模型为后续模型的提出奠定了基础</p>
 <p>后来提出的Marschner模型，在Kajiya-Kay模型基础上，得到了广泛应用</p>
-<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -238,13 +230,7 @@
 <th><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/posts/10168/-STUDY-/college/%E9%97%AB%E4%BB%A4%E7%90%AA_%E5%9B%BE%E5%BD%A2%E5%AD%A6%E5%85%A5%E9%97%A8/101/%E5%9B%BE%E7%89%87/p18-%E6%B8%B2%E6%9F%93%E5%89%8D%E6%B2%BF%E8%AF%9D%E9%A2%98/Marschner%E6%95%88%E6%9E%9C.png" alt="Marschner效果"></th>
 </tr>
 </thead>
-<tbody>
-<tr>
-<td></td>
-</tr>
-</tbody>
 </table>
-</div>
 <p>这个模型不再简单将头发丝视为圆柱，而是更进一步认为“圆柱”由“角质层”和“皮质层”组成</p>
 <p>而光线的作用过程也更加复杂，总共分为三类：</p>
 <ul>
@@ -252,30 +238,25 @@
 <li>TT：穿进“皮质层”，再从“角质层”穿出</li>
 <li>TRT：穿进“皮质层”，在内部反射，再从“角质层”穿出</li>
 </ul>
-<div class="table-container">
 <table>
 <thead>
 <tr>
-<th style="text-align:center">T</th>
-<th style="text-align:center">TT</th>
-<th style="text-align:center">TRT</th>
+<th align="center">T</th>
+<th align="center">TT</th>
+<th align="center">TRT</th>
 </tr>
 </thead>
-<tbody>
-<tr>
-<td style="text-align:center"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/posts/10168/-STUDY-/college/%E9%97%AB%E4%BB%A4%E7%90%AA_%E5%9B%BE%E5%BD%A2%E5%AD%A6%E5%85%A5%E9%97%A8/101/%E5%9B%BE%E7%89%87/p18-%E6%B8%B2%E6%9F%93%E5%89%8D%E6%B2%BF%E8%AF%9D%E9%A2%98/Marschner%20(2" alt="Marschner (2)">.png)</td>
-<td style="text-align:center"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/posts/10168/-STUDY-/college/%E9%97%AB%E4%BB%A4%E7%90%AA_%E5%9B%BE%E5%BD%A2%E5%AD%A6%E5%85%A5%E9%97%A8/101/%E5%9B%BE%E7%89%87/p18-%E6%B8%B2%E6%9F%93%E5%89%8D%E6%B2%BF%E8%AF%9D%E9%A2%98/Marschner%20(1" alt="Marschner (1)">.png)</td>
-<td style="text-align:center"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/posts/10168/-STUDY-/college/%E9%97%AB%E4%BB%A4%E7%90%AA_%E5%9B%BE%E5%BD%A2%E5%AD%A6%E5%85%A5%E9%97%A8/101/%E5%9B%BE%E7%89%87/p18-%E6%B8%B2%E6%9F%93%E5%89%8D%E6%B2%BF%E8%AF%9D%E9%A2%98/Marschner%20(3" alt="Marschner (3)">.png)</td>
+<tbody><tr>
+<td align="center"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/posts/10168/-STUDY-/college/%E9%97%AB%E4%BB%A4%E7%90%AA_%E5%9B%BE%E5%BD%A2%E5%AD%A6%E5%85%A5%E9%97%A8/101/%E5%9B%BE%E7%89%87/p18-%E6%B8%B2%E6%9F%93%E5%89%8D%E6%B2%BF%E8%AF%9D%E9%A2%98/Marschner%20(2).png" alt="Marschner (2)"></td>
+<td align="center"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/posts/10168/-STUDY-/college/%E9%97%AB%E4%BB%A4%E7%90%AA_%E5%9B%BE%E5%BD%A2%E5%AD%A6%E5%85%A5%E9%97%A8/101/%E5%9B%BE%E7%89%87/p18-%E6%B8%B2%E6%9F%93%E5%89%8D%E6%B2%BF%E8%AF%9D%E9%A2%98/Marschner%20(1).png" alt="Marschner (1)"></td>
+<td align="center"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/posts/10168/-STUDY-/college/%E9%97%AB%E4%BB%A4%E7%90%AA_%E5%9B%BE%E5%BD%A2%E5%AD%A6%E5%85%A5%E9%97%A8/101/%E5%9B%BE%E7%89%87/p18-%E6%B8%B2%E6%9F%93%E5%89%8D%E6%B2%BF%E8%AF%9D%E9%A2%98/Marschner%20(3).png" alt="Marschner (3)"></td>
 </tr>
-</tbody>
-</table>
-</div>
+</tbody></table>
 <p>可以看到效果还是非常不错的</p>
 <p>以上模型都是对人类头发来说的，那么更进一步，应用到动物毛发效果如何？</p>
 <p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/posts/10168/-STUDY-/college/%E9%97%AB%E4%BB%A4%E7%90%AA_%E5%9B%BE%E5%BD%A2%E5%AD%A6%E5%85%A5%E9%97%A8/101/%E5%9B%BE%E7%89%87/p18-%E6%B8%B2%E6%9F%93%E5%89%8D%E6%B2%BF%E8%AF%9D%E9%A2%98/%E5%8A%A8%E7%89%A9%E6%AF%9B%E5%8F%91.png" alt="动物毛发"></p>
 <p>明显不一样，显然右图更接近真实我们想要的效果</p>
 <p>下面从生物学角度深入探讨人类动物毛发的结构区别</p>
-<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -283,16 +264,9 @@
 <th><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/posts/10168/-STUDY-/college/%E9%97%AB%E4%BB%A4%E7%90%AA_%E5%9B%BE%E5%BD%A2%E5%AD%A6%E5%85%A5%E9%97%A8/101/%E5%9B%BE%E7%89%87/p18-%E6%B8%B2%E6%9F%93%E5%89%8D%E6%B2%BF%E8%AF%9D%E9%A2%98/%E5%8A%A8%E7%89%A9%E6%AF%9B%E5%8F%91%E7%94%9F%E7%89%A9%E5%AD%A6%E7%BB%93%E6%9E%842.png" alt="动物毛发生物学结构2"></th>
 </tr>
 </thead>
-<tbody>
-<tr>
-<td></td>
-</tr>
-</tbody>
 </table>
-</div>
 <p>除了角质和皮质，毛发还具有髓质结构，并且动物毛发的髓质明显比人类毛发的髓质粗不少</p>
 <p>于是我们的闫令琪老师就提出了一种双层圆柱模型来模拟这种情况</p>
-<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -300,13 +274,7 @@
 <th><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/posts/10168/-STUDY-/college/%E9%97%AB%E4%BB%A4%E7%90%AA_%E5%9B%BE%E5%BD%A2%E5%AD%A6%E5%85%A5%E9%97%A8/101/%E5%9B%BE%E7%89%87/p18-%E6%B8%B2%E6%9F%93%E5%89%8D%E6%B2%BF%E8%AF%9D%E9%A2%98/double%20cylinder%E6%95%88%E6%9E%9C.png" alt="double cylinder效果"></th>
 </tr>
 </thead>
-<tbody>
-<tr>
-<td></td>
-</tr>
-</tbody>
 </table>
-</div>
 <p>该模型在Marschner模型的T，TT，TRT基础上又加了两个计算项：TTs和TRTs</p>
 <ul>
 <li>TTs：TT传进“皮质层”时打到髓质发生散射，再从“角质层”穿出</li>
@@ -321,7 +289,6 @@
 <p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/posts/10168/-STUDY-/college/%E9%97%AB%E4%BB%A4%E7%90%AA_%E5%9B%BE%E5%BD%A2%E5%AD%A6%E5%85%A5%E9%97%A8/101/%E5%9B%BE%E7%89%87/p18-%E6%B8%B2%E6%9F%93%E5%89%8D%E6%B2%BF%E8%AF%9D%E9%A2%98/BSSRDF.png" alt="BSSRDF"></p>
 <p>在图形学中，通常使用BSSRDF方程来描述次表面散射，它可以被认为是BSDF的拓展，BSDF计算贡献时只会计算当前着色点，而BSSRDF还需要考虑其他渲染单元射入的光线，因为这些光线在材质内发生散射后，同样有可能对当前着色点的能量造成影响</p>
 <p>来看看BSSRDF的效果</p>
-<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -329,14 +296,11 @@
 <th><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/posts/10168/-STUDY-/college/%E9%97%AB%E4%BB%A4%E7%90%AA_%E5%9B%BE%E5%BD%A2%E5%AD%A6%E5%85%A5%E9%97%A8/101/%E5%9B%BE%E7%89%87/p18-%E6%B8%B2%E6%9F%93%E5%89%8D%E6%B2%BF%E8%AF%9D%E9%A2%98/BSSRDF%E6%95%88%E6%9E%9C1%EF%BC%882%EF%BC%89.png" alt="BSSRDF效果1（2）"></th>
 </tr>
 </thead>
-<tbody>
-<tr>
+<tbody><tr>
 <td><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/posts/10168/-STUDY-/college/%E9%97%AB%E4%BB%A4%E7%90%AA_%E5%9B%BE%E5%BD%A2%E5%AD%A6%E5%85%A5%E9%97%A8/101/%E5%9B%BE%E7%89%87/p18-%E6%B8%B2%E6%9F%93%E5%89%8D%E6%B2%BF%E8%AF%9D%E9%A2%98/BSSRDF%E6%95%88%E6%9E%9C2.png" alt="BSSRDF效果2"></td>
 <td><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/posts/10168/-STUDY-/college/%E9%97%AB%E4%BB%A4%E7%90%AA_%E5%9B%BE%E5%BD%A2%E5%AD%A6%E5%85%A5%E9%97%A8/101/%E5%9B%BE%E7%89%87/p18-%E6%B8%B2%E6%9F%93%E5%89%8D%E6%B2%BF%E8%AF%9D%E9%A2%98/BSSRDF%E6%95%88%E6%9E%9C3.png" alt="BSSRDF效果3"></td>
 </tr>
-</tbody>
-</table>
-</div>
+</tbody></table>
 <p>在应用时，我们也可以用Dipole方法做近似，即在表面上下各假设一个虚拟光源，来模拟次表面散射的光照效果</p>
 <p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/posts/10168/-STUDY-/college/%E9%97%AB%E4%BB%A4%E7%90%AA_%E5%9B%BE%E5%BD%A2%E5%AD%A6%E5%85%A5%E9%97%A8/101/%E5%9B%BE%E7%89%87/p18-%E6%B8%B2%E6%9F%93%E5%89%8D%E6%B2%BF%E8%AF%9D%E9%A2%98/Dipole%E8%BF%91%E4%BC%BC.png" alt="Dipole近似"></p>
 <h5 id="布料模拟"><a href="#布料模拟" class="headerlink" title="布料模拟"></a>布料模拟</h5><p>我们先来看布料的微观组成：纤维 -&gt; 纱线 -&gt; 布料</p>
@@ -350,7 +314,6 @@
 <p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/posts/10168/-STUDY-/college/%E9%97%AB%E4%BB%A4%E7%90%AA_%E5%9B%BE%E5%BD%A2%E5%AD%A6%E5%85%A5%E9%97%A8/101/%E5%9B%BE%E7%89%87/p18-%E6%B8%B2%E6%9F%93%E5%89%8D%E6%B2%BF%E8%AF%9D%E9%A2%98/%E5%B8%83%E6%96%99%E6%A8%A1%E6%8B%9F4.png" alt="布料模拟4"></p>
 <h5 id="细节模型"><a href="#细节模型" class="headerlink" title="细节模型"></a>细节模型</h5><p>至今为止讲的所有真实感渲染都忽略了一件事，那就是现实世界中的物体大多数都是不完美的，多多少少都会带点瑕疵，比如风雨灰尘在车漆上留下的细微划痕，或物件老化磨损，等等等等，现实世界的情况往往比理论更加复杂</p>
 <p>想要在渲染时考虑这些微小的因素，我们在之前提到微表面模型的时候有强调过使用法线分布来描述微观表面的起伏，但那时候说的法线分布，大部分是正态分布之类的简单分布，这并不是我们真正想要的</p>
-<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -358,18 +321,11 @@
 <th><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/posts/10168/-STUDY-/college/%E9%97%AB%E4%BB%A4%E7%90%AA_%E5%9B%BE%E5%BD%A2%E5%AD%A6%E5%85%A5%E9%97%A8/101/%E5%9B%BE%E7%89%87/p18-%E6%B8%B2%E6%9F%93%E5%89%8D%E6%B2%BF%E8%AF%9D%E9%A2%98/%E5%BE%AE%E8%A1%A8%E9%9D%A2%E5%9B%9E%E9%A1%BE2.png" alt="微表面回顾2"></th>
 </tr>
 </thead>
-<tbody>
-<tr>
-<td></td>
-</tr>
-</tbody>
 </table>
-</div>
 <p>我们当然可以人为的往这些分布上加一些细节扰动，但想真正把它渲染出来是非常困难的</p>
 <p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/posts/10168/-STUDY-/college/%E9%97%AB%E4%BB%A4%E7%90%AA_%E5%9B%BE%E5%BD%A2%E5%AD%A6%E5%85%A5%E9%97%A8/101/%E5%9B%BE%E7%89%87/p18-%E6%B8%B2%E6%9F%93%E5%89%8D%E6%B2%BF%E8%AF%9D%E9%A2%98/%E7%BB%86%E8%8A%82%E6%A8%A1%E5%9E%8B.png" alt="细节模型"></p>
 <p>闫神：《关于自己的头像是自己渲染了一个月的研究结果这档事》</p>
 <p>除此之外，细节模型还存在一个问题，就是在计算镜面反射时，如果法线分布比较复杂，就很难建立有效的，从光源到微表面再到摄像机的光线通路，为了解决这个问题，我们让每个像素打出路径时都对应一个范围，如图，把整块范围内的法线分布整合起来得到P-NDF，从而简化计算</p>
-<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -377,17 +333,10 @@
 <th><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/posts/10168/-STUDY-/college/%E9%97%AB%E4%BB%A4%E7%90%AA_%E5%9B%BE%E5%BD%A2%E5%AD%A6%E5%85%A5%E9%97%A8/101/%E5%9B%BE%E7%89%87/p18-%E6%B8%B2%E6%9F%93%E5%89%8D%E6%B2%BF%E8%AF%9D%E9%A2%98/P%20NDF2.png" alt="P NDF2"></th>
 </tr>
 </thead>
-<tbody>
-<tr>
-<td></td>
-</tr>
-</tbody>
 </table>
-</div>
 <p>单独看这些P-NDF，单个像素覆盖的微表面范围大小不同，P-NDF所呈现出来的特点也各不相同</p>
 <p>当范围选取的大，P-NDF会趋于符合一些统计学规律，而当范围选取的小，这些P-NDF则会展现出一些很奇妙的形态</p>
 <p>并且，不同类型的法线分布也会得到不同的P-NDF图像，各向同性的P-NDF与各向异性材质完全不同</p>
-<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -395,15 +344,8 @@
 <th><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/posts/10168/-STUDY-/college/%E9%97%AB%E4%BB%A4%E7%90%AA_%E5%9B%BE%E5%BD%A2%E5%AD%A6%E5%85%A5%E9%97%A8/101/%E5%9B%BE%E7%89%87/p18-%E6%B8%B2%E6%9F%93%E5%89%8D%E6%B2%BF%E8%AF%9D%E9%A2%98/P%20NDF4.png" alt="P NDF4"></th>
 </tr>
 </thead>
-<tbody>
-<tr>
-<td></td>
-</tr>
-</tbody>
 </table>
-</div>
 <p>再深入，就要考虑到微表面上光的波粒二象性了，比如干涉衍射，这些太复杂，并且只有在很小的尺度下，波动性才会起作用，在这里就不细说了，但可以看看考虑了波动光学的BRDF和几何光学BRDF的区别：</p>
-<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -411,13 +353,7 @@
 <th><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/posts/10168/-STUDY-/college/%E9%97%AB%E4%BB%A4%E7%90%AA_%E5%9B%BE%E5%BD%A2%E5%AD%A6%E5%85%A5%E9%97%A8/101/%E5%9B%BE%E7%89%87/p18-%E6%B8%B2%E6%9F%93%E5%89%8D%E6%B2%BF%E8%AF%9D%E9%A2%98/%E8%80%83%E8%99%91%E5%BE%AE%E8%A1%A8%E9%9D%A2%E7%9A%84%E6%B3%A2%E5%8A%A8%E6%80%A7%E7%9A%84BRDF.png" alt="考虑微表面的波动性的BRDF"></th>
 </tr>
 </thead>
-<tbody>
-<tr>
-<td></td>
-</tr>
-</tbody>
 </table>
-</div>
 <p>结果和几何光学极为相近，但它的图像是不连续的</p>
 <h4 id="程序化生成材质"><a href="#程序化生成材质" class="headerlink" title="程序化生成材质"></a>程序化生成材质</h4><p>之前再说纹理的时候就有简单提到过程序纹理，对应到材质这块，这个过程就是通过程序来指导材质的生成</p>
 <p>这里的程序化生成并没有真正的生成材质，而是将这个材质信息定义为空间中的一些噪声函数，在后续生成时动态的查询它</p>
